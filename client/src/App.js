@@ -19,6 +19,10 @@ function App() {
         </a>
       </header>
       <h1>Raj</h1>
+
+      <h3>This is faruk</h3>
+
+      <h2>This is faruk branch</h2>
     </div>
   );
 }
