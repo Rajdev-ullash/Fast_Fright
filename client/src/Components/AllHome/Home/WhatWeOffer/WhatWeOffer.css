@@ -22,11 +22,10 @@
 .offer-img{
     background-color: #ffca00;
     /* transform: scale(-.5); */
-
+    animation: offer 2s linear;    
 }
 .offer-card:hover .offer-img{
     box-shadow: inset 0 0 0 3px #ffca00;
-    /* animation: offer 2s linear;     */
 }
 @keyframes offer{
     from{
