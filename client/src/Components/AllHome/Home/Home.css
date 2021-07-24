@@ -1,0 +1,9 @@
+.content{
+    background-image: url("http://demo.vegatheme.com/gocargo/demo3/wp-content/uploads/sites/3/2016/05/bg-4-1.jpg");
+    animation: bg 75s linear infinite;
+
+}
+@keyframes bg{
+    0%{background-position: 0 0;}
+    100%{background-position:-2122px 0;}
+}
