@@ -8,6 +8,36 @@
     margin-top: 60px;
     height: auto;
 }
+.offer-img{
+    background-color: #fbfbfb;
+    width: 105px;
+    padding: 32px 0;
+    margin: 0 auto;
+    border-radius: 50%;
+
+}
 .our-offer-container img{
     height: 40px;
 }
+.offer-img{
+    background-color: #ffca00;
+    /* transform: scale(-.5); */
+
+}
+.offer-card:hover .offer-img{
+    box-shadow: inset 0 0 0 3px #ffca00;
+    /* animation: offer 2s linear;     */
+}
+@keyframes offer{
+    from{
+        width: 105px;
+        padding: 32px 0;
+    }
+    to{
+        width: 60px;
+        padding: 20px 0;
+    }
+}
+/* .offer-card:hover{
+    background-color: #ffca00;
+} */
