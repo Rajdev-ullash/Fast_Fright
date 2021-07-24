@@ -1,0 +1,13 @@
+.bottom-line{
+    width: 50px;
+    height: 3px;
+    background-color: #ffc434;
+    margin: 0 auto;
+}
+.our-offer-container{
+    margin-top: 60px;
+    height: auto;
+}
+.our-offer-container img{
+    height: 40px;
+}
