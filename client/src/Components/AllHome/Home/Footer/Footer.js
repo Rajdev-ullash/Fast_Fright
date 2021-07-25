@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='footer-last'>
-                <p className='text-center text-white py-3'>© Copyright 2020 - FAST FRIGHT by Effetient Coders</p>
+                <p className='text-center text-white py-3 m-0'>© Copyright 2020 - FAST FRIGHT by Effetient Coders</p>
             </div>
         </div>
     );
