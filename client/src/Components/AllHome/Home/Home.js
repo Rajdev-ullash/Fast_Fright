@@ -1,19 +1,14 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import Faq from './Faq/Faq';
+import Testominal from './Testominal/Testominal';
 import WhatWeOffer from './WhatWeOffer/WhatWeOffer';
->>>>>>> main
 
 const Home = () => {
     return (
         <div>
-<<<<<<< HEAD
-            
-=======
+            <Testominal></Testominal>
             <Faq></Faq>
             <WhatWeOffer></WhatWeOffer>
->>>>>>> main
         </div>
     );
 };
