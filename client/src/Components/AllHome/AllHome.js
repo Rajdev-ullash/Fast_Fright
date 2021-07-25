@@ -5,7 +5,7 @@ import Home from './Home/Home';
 const AllHome = () => {
     return (
         <div>
-           <Home />
+           <Home></Home>
         </div>
     );
 };
