@@ -8,7 +8,7 @@ const InfoCard = ({info}) => {
         <div className="col-md-4 text-white" >
            <div className={`d-flex justify-content-around align-items-center info-container info-${info.background} `}>
            <div >
-            <FontAwesomeIcon  className="info-icon" icon={info.icon} />
+            <FontAwesomeIcon  className="info-icon textColor" icon={info.icon} />
             </div>
     
             <div>

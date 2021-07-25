@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCard from '../InfoCard/InfoCard';
-import { faClock,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faClock,faHome,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const infosData =[
     {
@@ -11,12 +11,12 @@ const infosData =[
     },
     {
         title:'Visit our Location',
-        description:'Brooklyn, new york, USA',
-        icon:faMapMarker,
+        description:'Dhaka, Bangladesh',
+        icon:faHome,
         background:'dark'
     },{
         title:'Call us Now',
-        description:'+6777484494',
+        description:'+8801777484494',
         icon:faPhone,
         background:'primary'
     }
