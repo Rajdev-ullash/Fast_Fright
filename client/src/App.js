@@ -17,10 +17,6 @@ function App() {
           <Route exact path="/">
           <AllHome></AllHome>
           </Route>
-         
-           
-
-
         </Switch>
       </Router>
      </div>
