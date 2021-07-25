@@ -22,7 +22,7 @@ const WhatWeOffer = () => {
                         <img src={heart} alt="heart" />
                    </div>
                     <h5 className='mt-4'>WAREHOUSE SERVICE</h5>
-                    <small className='text-secondary mt-4'>Praesent eu rhoncus nibh. Quisque tincidunt, nisi in enena comm neque quam pharetra </small>
+                    <small className='text-secondary mt-4'>Praesent eu rhoncus nibh. Quisque tincidunt, nisi in enena comm neque quam</small>
                 </div>
                 <div className="col-md-3 text-center offer-card">
                     <div className="offer-img">
