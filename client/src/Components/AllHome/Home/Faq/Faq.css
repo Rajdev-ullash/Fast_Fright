@@ -1,0 +1,18 @@
+.accordion-button:focus{
+    box-shadow: unset;
+    outline: unset;
+    color: #000;
+}
+.accordion-button:hover{
+    background-color: #ffc434;
+    color: #fff;
+}
+.faq-section{
+    height: auto;
+    width: 65%;
+}
+.top-line{
+    width: 50px;
+    height: 3px;
+    background-color: #ffc434;
+}
