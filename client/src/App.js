@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Testominal from './Components/AllHome/Home/Testominal/Testominal';
 
 function App() {
   return (
@@ -18,11 +19,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <h1>Raj</h1>
-
-      <h3>This is faruk</h3>
-
-      <h2>This is faruk branch</h2>
+      <Testominal></Testominal>
     </div>
   );
 }
