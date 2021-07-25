@@ -1,0 +1,16 @@
+.footer-container{
+    background-color: #171717;
+}
+.links-lists{
+    list-style: none
+}
+.link-list-item{
+    cursor: pointer;
+    
+}
+.link-list-item:hover{
+    font-weight: 500; 
+}
+.footer-last{
+    background-color: #131313;
+}
