@@ -5,7 +5,6 @@ import AllHome from './Components/AllHome/AllHome';
 function App() {
   return (
     <div>
-      <Home/>
       <AllHome></AllHome>
     </div>
   );

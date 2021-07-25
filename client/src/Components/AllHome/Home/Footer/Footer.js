@@ -7,7 +7,7 @@ import { faChevronRight, faCoffee } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
     return (
         <div>
-            <div className='footer-container text-white row p-4'>
+            <div className='footer-container text-white row w-100 p-4'>
                 <div className='col-md-3'>
                     <p><b>About Us</b> </p>
                     <h4>FAST FRIGHT</h4>
@@ -38,7 +38,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className='footer-last'>
+            <div className='footer-last w-100'>
                 <p className='text-center text-white py-3 m-0'>© Copyright 2020 - FAST FRIGHT by Effetient Coders</p>
             </div>
         </div>
