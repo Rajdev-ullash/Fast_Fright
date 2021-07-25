@@ -37,9 +37,9 @@ const choose_data = [
 ];
 const Choose_us = () => {
   return (
-    <div className="choose">
+    <div className="choose mt-5">
       <div className="text-center p-5">
-        <h6 style={{ color: "tomato" }}>Our Features</h6>
+        <h6 style={{ color: "#FDBC24" }}>Our Features</h6>
         <h1 className="text-white">Why Choose Us!</h1>
         <p className="choose-title">
           We continue to pursue that same vision in today's complex, uncertain

@@ -1,5 +1,6 @@
 import React from "react";
 import BusinessInfo from "./BusinessInfo/BusinessInfo";
+import Choose_us from "./Choose_us/Choose_us";
 import Faq from "./Faq/Faq";
 import Footer from "./Footer/Footer";
 import HeaderMain from "./HeaderMain/HeaderMain";
@@ -13,6 +14,7 @@ const Home = () => {
       <Navbar></Navbar>
       <HeaderMain></HeaderMain>
       <BusinessInfo></BusinessInfo>
+      <Choose_us />
       <Testominal></Testominal>
       <Faq></Faq>
       <WhatWeOffer></WhatWeOffer>

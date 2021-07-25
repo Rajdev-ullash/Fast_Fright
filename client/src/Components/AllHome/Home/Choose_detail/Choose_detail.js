@@ -20,7 +20,7 @@ const Choose_detail = (props) => {
           <img
             src={img}
             alt=""
-            style={{ width: "50px", marginLeft: "20px" }}
+            style={{ width: "50px", marginLeft: "20px", color: "#FDBC24" }}
             className="mt-4 mb-2"
           />
           <Card.Body>
