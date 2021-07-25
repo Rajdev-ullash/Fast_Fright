@@ -1,0 +1,15 @@
+.choose-card {
+  background-color: rgb(10, 10, 78);
+  border: 1px solid grey;
+  transition-property: margin-top;
+  transition-duration: 1s;
+}
+.choose-card:hover {
+  margin-top: 15px;
+}
+.title {
+  color: white;
+}
+.description {
+  color: rgb(180, 162, 162);
+}
