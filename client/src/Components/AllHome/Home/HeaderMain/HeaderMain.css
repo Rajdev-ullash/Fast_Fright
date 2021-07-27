@@ -1,8 +1,7 @@
 .content{
-    background-image: url("http://demo.vegatheme.com/gocargo/demo3/wp-content/uploads/sites/3/2016/05/bg-4-1.jpg");
+    background-image: url("http://demo.vegatheme.com/gocargo/demo3/wp-content/uploads/sites/3/2016/05/bg-tile.jpg?id=561");
     animation: bg 75s linear infinite;
     height: 500px;
-
 }
 @keyframes bg{
     0%{background-position: 0 0;}
@@ -10,4 +9,7 @@
 }
 .contentDetail{
     margin: 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 60px;
 }
