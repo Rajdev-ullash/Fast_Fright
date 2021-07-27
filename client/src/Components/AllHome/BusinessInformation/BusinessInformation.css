@@ -2,3 +2,12 @@
     height: 45px;
     width: 320px;
 }
+.button{
+    margin-left: 330px;
+}
+
+@media(max-width:425px){
+    .button{
+        margin-left: 24px;
+    }
+}
