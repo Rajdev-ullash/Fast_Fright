@@ -19,6 +19,7 @@ const Home = () => {
       <Faq></Faq>
       <WhatWeOffer></WhatWeOffer>
       <Footer></Footer>
+      
     </div>
   );
 };
