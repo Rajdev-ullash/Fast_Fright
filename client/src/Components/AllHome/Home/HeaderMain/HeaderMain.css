@@ -5,11 +5,11 @@
 }
 @keyframes bg{
     0%{background-position: 0 0;}
-    100%{background-position:-2122px 0;}
+    100%{background-position:-3722px 0;}
 }
 .contentDetail{
     margin: 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
     font-weight: 900;
-    font-size: 60px;
+    font-size: 80px;
 }
