@@ -1,6 +1,14 @@
-.textColor{
-    color:#fdbc24!important;
-} 
-.bg-color{
-    background-color:#fdbc24!important;
+.nav-link a{
+    padding-right: 40px 0 !important;
+    color: yellow;
+}
+.navbar-brand{
+    color: #fdbc24 !important;
+    font-size: 35px;
+    font-weight: 900;
+    font-family: 'Oswald', sans-serif;
+}
+.navbar{
+    background-color:#131313!important;
+    height: 80px;
 }
