@@ -7,7 +7,7 @@ const HeaderMain = () => {
     return (
         <div className="content text-white">
 
-            <div  >
+            <div>
                 <h2 className="textColor " >We are the leading</h2>
                 <h1 className="contentDetail">WORLDWIDE <br />FREIGHT FORWARD</h1>
 

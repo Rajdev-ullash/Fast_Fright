@@ -1,6 +1,8 @@
-.nav-link a{
-    padding-right: 40px 0 !important;
-    color: yellow;
+.nav-link{
+    font-size: 15px !important;
+}
+.nav-link:hover{
+    color: #fdbc24 !important;
 }
 .navbar-brand{
     color: #fdbc24 !important;
