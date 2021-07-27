@@ -47,7 +47,7 @@ const Choose_us = () => {
           <br /> working every day to earn our customers’ trust!
         </p>
       </div>
-      <div className="row ">
+      <div className="row w-100" >
         {choose_data.map((choose) => (
           <Choose_detail choose={choose} key={choose.name} />
         ))}
