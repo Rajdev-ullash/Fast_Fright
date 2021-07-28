@@ -1,0 +1,17 @@
+.login-container {
+  background-color: aliceblue;
+}
+/* .login-container {
+  width: 450px;
+  margin-top: 20vh;
+} */
+.login {
+  text-align: center;
+}
+
+.submit {
+  background-color: tomato;
+  width: 200px;
+  border: none;
+  color: white;
+}

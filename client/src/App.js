@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./Components/AllHome/Home/Home";
 import AllHome from "./Components/AllHome/AllHome";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <AllHome></AllHome>
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
         </Switch>
       </Router>
