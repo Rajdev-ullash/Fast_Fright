@@ -6,8 +6,8 @@ const InfoCard = ({info}) => {
     console.log(info);
     return (
         <div className="col-md-4 text-white" >
-           <div className={`d-flex justify-content-between align-items-center info-container info-${info.background} `}>
-           <div >
+           <div className={`d-flex align-items-center info-container info-${info.background} `}>
+           <div className='me-4'>
             <FontAwesomeIcon  className="info-icon textColor" icon={info.icon} />
             </div>
             <div>
