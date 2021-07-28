@@ -1,4 +1,5 @@
 import React from "react";
+import CreateParcel from "../../CreateParcel/CreateParcel";
 import BusinessInfo from "./BusinessInfo/BusinessInfo";
 import Choose_us from "./Choose_us/Choose_us";
 import Faq from "./Faq/Faq";
@@ -14,6 +15,7 @@ const Home = () => {
       <Navbar></Navbar>
       <HeaderMain></HeaderMain>
       <BusinessInfo></BusinessInfo>
+      <CreateParcel></CreateParcel>
       <Choose_us />
       <Testominal></Testominal>
       <Faq></Faq>

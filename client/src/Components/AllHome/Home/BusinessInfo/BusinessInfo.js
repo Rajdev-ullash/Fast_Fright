@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCard from '../InfoCard/InfoCard';
-import { faClock,faHome,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faClock,faHome,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const infosData =[
     {
