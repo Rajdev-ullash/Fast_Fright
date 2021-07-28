@@ -6,17 +6,15 @@ const InfoCard = ({info}) => {
     console.log(info);
     return (
         <div className="col-md-4 text-white" >
-           <div className={`d-flex justify-content-around align-items-center info-container info-${info.background} `}>
+           <div className={`d-flex justify-content-between align-items-center info-container info-${info.background} `}>
            <div >
             <FontAwesomeIcon  className="info-icon textColor" icon={info.icon} />
             </div>
-    
             <div>
                 <h6>{info.title}</h6>
                 <small>{info.description} </small>
             </div>
            </div>
-            
         </div>
     );
 };
