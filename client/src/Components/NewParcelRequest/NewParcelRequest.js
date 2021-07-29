@@ -32,13 +32,13 @@ const NewParcelRequest = () => {
                 </div>
                 <div className="col-md-6 ">
                     <div className="form-group p-1">
-                        <input type="text" name="name" className="form-control" placeholder="Your Name *" />
+                        <input type="text" name="name" className="form-control" placeholder="Cash collection amount *" />
                     </div>
                     <div className="form-group p-1">
-                        <input type="text" name="email" className="form-control" placeholder="Your Email *" />
+                        <input type="text" name="email" className="form-control" placeholder="Price of product  *" />
                     </div>
                     <div className="form-group p-1">
-                        <input type="text" name="phone" className="form-control" placeholder="Your Phone Number *" />
+                        <input type="text" name="phone" className="form-control" placeholder="Please share your advice *" />
                     </div>
                 </div>
             </div>
