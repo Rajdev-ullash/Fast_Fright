@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCard from '../InfoCard/InfoCard';
-import { faClock,faHome,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faClock,faHome,faMapMarker,faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const infosData =[
     {
@@ -24,8 +24,7 @@ const infosData =[
 const BusinessInfo = () => {
     console.log(infosData);
     return (
-        <section className="d-flex justify-content-center" >
-            
+        <section className="d-flex justify-content-center business-info" style={{backgroundColor: '#131313'}}>
            <div className="w-75 row" >
            {
              infosData.map(info => <InfoCard info={info} ></InfoCard>  )   

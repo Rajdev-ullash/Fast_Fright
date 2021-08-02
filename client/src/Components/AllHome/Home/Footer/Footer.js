@@ -7,13 +7,13 @@ import { faChevronRight, faCoffee } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
     return (
         <div>
-            <div className='footer-container text-white row w-100 p-4'>
+            <div className='footer-container text-white row p-4'>
                 <div className='col-md-3'>
                     <p><b>About Us</b> </p>
                     <h4>FAST FRIGHT</h4>
                     <p> <small> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita labore est, hic suscipit voluptatem quibusdam necessitatibus aliquid sunt cumque sit dignissimos cum eaque quaerat amet vitae tempora similique eligendi! Quasi minus incidunt optio tempore eos pariatur facere, dolore maxime, saepe nam enim ducimus expedita.</small></p>
                     <p className='text-warning link-list-item' >View Details&#62;&#62;</p>
-                </div>
+                </div>                                                                 
                 <div className='col-md-3'>
                     <p> <b> Twitter Feeds</b></p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolores quo mollitia!</p>
