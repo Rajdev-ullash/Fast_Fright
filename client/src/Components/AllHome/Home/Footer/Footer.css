@@ -8,7 +8,6 @@
 }
 .link-list-item{
     cursor: pointer;
-    
 }
 .link-list-item:hover{
     font-weight: 500; 
