@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 
 
 // import routes
-const authRoutes = require('./routers/auth')
+const authRoutes = require('./routers/authRouter')
 
 //app middleware
 app.use(morgan('dev'))

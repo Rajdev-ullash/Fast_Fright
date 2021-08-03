@@ -7,19 +7,27 @@ const User = require('../models/user');
 
 exports.signup = async (req, res) =>{
     try {
-        const hashPassword = await bcrypt.hash(req.body.password, 10);
-        const newUser = new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: hashPassword,
-            phone: req.body.phone,
-        });
-        await newUser.save();
-        res.status(200).json({
-            newUser,
-            error: 'signup successfully',
-        });
+        const userSignUp  = await User.findOne({email: req.body.email});
+            if(userSignUp){
+                res.status(404).json({
+                    error: 'Email is already taken'
+                })
+            } else{
+                const hashPassword = await bcrypt.hash(req.body.password, 10);
+                const newUser = new User({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: hashPassword,
+                    phone: req.body.phone,
+                });
+                await newUser.save();
+                res.status(200).json({
+                    newUser,
+                    error: 'signup successfully',
+                });
+            }
+
     } catch {
         res.status(500).json({
             message: 'signup error find!!!',

@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 //import controllers
-const {signup, signin} = require('../controllers/auth')
+const {signup, signin} = require('../controllers/authController')
 
 
 // import middleware
