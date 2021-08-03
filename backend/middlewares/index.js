@@ -25,6 +25,6 @@ exports.isNotVerified = async function(req, res, next){
     } catch (err) {
         console.log(err);
         req.flash('error', 'Something went wrong, Please contact us for assistance');
-        res.redirect('/')
+        res.redirect('/');
     }
 }
