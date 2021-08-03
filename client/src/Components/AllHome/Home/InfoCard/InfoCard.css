@@ -1,11 +1,12 @@
-.info-primary{
+/* .info-primary{
     background-color:rgb(14, 15, 15);
 }
 .info-dark{
     background-color:rgb(14, 15, 15);
-}
+} */
 .info-icon{
-    font-size:3em;
+    font-size: 2em;
+    color: #fdbc24 ;
 }
 .info-container{
     height: 80px;

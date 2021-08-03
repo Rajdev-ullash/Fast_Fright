@@ -8,7 +8,7 @@ const Testominal = () => {
         <div>
             <div className="container">
                 <div id="demo" className="carousel slide" data-ride="carousel">
-                <h1 className="mt-5 text-center" style={{"color":"#ff5d1b","textTransform": "uppercase", "letterSpacing":".5px"}}>client says</h1>
+                <h1 className="mt-5 text-center" style={{"color":"#171717","textTransform": "uppercase", "letterSpacing":".5px"}}>client says</h1>
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="Slide 2"></button>

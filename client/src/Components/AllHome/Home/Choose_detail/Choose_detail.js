@@ -1,11 +1,11 @@
 import React from "react";
 import "./Choose_detail.css";
-import { Card, Carousel } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 const Choose_detail = (props) => {
   console.log(props.choose);
   const { name, des, img } = props.choose;
   return (
-    <div className="col-md-3  mb-5 ">
+    <div className="col-md-3  mb-5">
       <div className="d-flex justify-content-center ">
         <Card
           className="choose-card"
