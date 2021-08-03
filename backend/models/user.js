@@ -38,6 +38,8 @@ const userSchema = new mongoose.Schema({
         data: String,
         default:''
     },
+    emailToken: String,
+    isVerified: Boolean,
 
 }, {timestamps:true})
 
