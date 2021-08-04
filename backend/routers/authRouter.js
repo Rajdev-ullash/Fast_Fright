@@ -15,6 +15,6 @@ const {checkLogin} = require('../middlewares/checkLogin');
 
 //Router routes
 router.post('/signup', runValidation, userSignupValidator, signup);
-router.post('/signin', isNotVerified, runValidation,userSigninValidator, signin);
+router.post('/signin', runValidation,userSigninValidator, signin);
 
 module.exports = router;
