@@ -24,6 +24,7 @@ exports.signup = async (req, res) =>{
                     emailToken: req.crypto.randomBytes(64).toString('hex'),
                     isVerified: false,
                 });
+                
                 User.regis
                 await newUser.save();
                 res.status(200).json({
@@ -98,7 +99,7 @@ router.get('/verify-email', async (req, res, next) => {
         const user = await User.findOne({ emailToken: req.query.token});
         if(!user){
             req.flash('error', 'Token is invalid please contact us for assistance');
-            return res.redirect('/');
+            // return res.redirect('/');
         }
         user.emailToken = null;
         user.isVerified = true;
@@ -108,11 +109,11 @@ router.get('/verify-email', async (req, res, next) => {
             req.flash('success', `welcome to efficient coders ${user.fastName}`)
             const redirectUrl = req.session.redirectTo || '/';
             delete req.session.redirectTo;
-            res.redirect(redirectUrl);
+            // res.redirect(redirectUrl);
         });
     } catch (err) {
         console.log(err);
         req.flash('error', 'something what wrong, please contact us for assistance');
-        res.redirect('/')
+        // res.redirect('/')
     }
 })
