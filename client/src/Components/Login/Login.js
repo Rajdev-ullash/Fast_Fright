@@ -3,6 +3,37 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
   const [user, setUser] = useState(false);
+  const [userInfo, setUerInfo] = useState({})
+  const handleChange = (e) => {
+    const newUserInfo = { ...userInfo }
+    newUserInfo[e.target.name] = e.target.value;
+    setUerInfo(newUserInfo)
+    console.log(newUserInfo)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formdata = new FormData()
+    formdata.append('firstName',userInfo.firstName)
+    formdata.append('lastName',userInfo.lastName)
+    formdata.append('email',userInfo.email)
+    formdata.append('password',userInfo.password)
+    formdata.append('phone',userInfo.phone)
+    console.log(userInfo)
+    
+      fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+      },
+        body: JSON.stringify(formdata)
+      })
+      .then(res=>res.json())
+      .then(data=>console.log(data))
+      .catch(err=>console.log(err))
+
+    
+
+  }
   return (
     <div className="mt-5 ">
       <div className=" ">
@@ -10,11 +41,11 @@ const Login = () => {
           <div className="shadow p-5 col-md-4 login-container">
             <h3>{user ? "Create an account" : "Login"}</h3>
             <div className="login ">
-              <form>
+              <form onSubmit={handleSubmit}>
                 {user && (
-                  <input
+                  <input onBlur={handleChange}
                     type="text"
-                    name="name"
+                    name="firstName"
                     className="form-control"
                     placeholder="First Name"
                     required
@@ -23,9 +54,9 @@ const Login = () => {
 
                 <br />
                 {user && (
-                  <input
+                  <input onBlur={handleChange}
                     type="text"
-                    name="name"
+                    name="lastName"
                     className="form-control"
                     placeholder="Last Name"
                     required
@@ -34,7 +65,7 @@ const Login = () => {
 
                 <br />
 
-                <input
+                <input onBlur={handleChange}
                   type="text"
                   name="email"
                   className="form-control"
@@ -42,7 +73,7 @@ const Login = () => {
                   required
                 />
                 <br />
-                <input
+                <input onBlur={handleChange}
                   type="password"
                   name="password"
                   className="form-control"
@@ -50,21 +81,35 @@ const Login = () => {
                   required
                 />
                 <br />
+                <input onBlur={handleChange}
+                  type="number"
+                  name="phone"
+                  className="form-control"
+                  placeholder="phone"
+                  required
+                />
+                <br />
                 {user && (
-                  <input
+                  <input onBlur={handleChange}
                     type="password"
-                    name="password"
+                    name="confirmPassword"
                     className="form-control"
                     placeholder="confirm password"
                     required
                   />
                 )}
                 <br />
-                <input
-                  className="submit"
-                  type="submit"
-                  value={user ? "Sign Up" : "Sign In"}
-                />
+                {user ?
+                  <input
+                    className="submit"
+                    type="submit"
+                    value="Sign Up"
+                  /> :
+                  <input
+                    className="submit"
+                    type="submit"
+                    value="Sign In"
+                  />}
                 <p>
                   {user ? "Already" : "Don't"} Have An account?{" "}
                   <Link onClick={() => setUser(!user)}>
