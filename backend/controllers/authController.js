@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const router = require('../routers/authRouter');
 
+// const nodemailer = require('nodemailer');
+// const nodemailMailgun = require('nodemailer-mailgun-transport');
 
 //mailgun 
 
@@ -48,7 +50,7 @@ exports.signup = async (req, res) =>{
 
 
 
-//mailgun email sent
+// mailgun email sent
 
 // exports.signup = (req, res) => {
 //     const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN });
@@ -61,6 +63,7 @@ exports.signup = async (req, res) =>{
 //                 error: 'Email is already taken'
 //             })
 //         }
+        
 
 //         const token = jwt.sign({ firstName, lastName, email, password, phone }, 'accountactive123', { expiresIn: '20m' });
 //         const data = {
