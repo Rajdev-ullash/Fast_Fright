@@ -82,7 +82,7 @@ const SignIn = () => {
                   />}
                 <p>
                   {user ? "Already" : "Don't"} Have An account?{" "}
-                  <Link onClick={() => setUser(!user)}>
+                  <Link>
                     {user ? "Login" : "Create An Account"}
                   </Link>
                 </p>
