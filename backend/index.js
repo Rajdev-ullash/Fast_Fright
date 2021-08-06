@@ -9,6 +9,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json())
+app.use(morgan('dev'))
+app.use(cors())
+app.use(bodyParser.json())
 
 // send grid code
 // const API_KEYS ="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";
@@ -46,9 +49,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 const authRoutes = require('./routers/authRouter')
 
 //app middleware
-app.use(morgan('dev'))
-app.use(cors())
-app.use(bodyParser.json())
+
 
 //middleware
 app.use('/api', authRoutes)

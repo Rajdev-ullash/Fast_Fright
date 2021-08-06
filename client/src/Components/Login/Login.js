@@ -12,12 +12,12 @@ const Login = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    const formdata = new FormData()
-    formdata.append('firstName',userInfo.firstName)
-    formdata.append('lastName',userInfo.lastName)
-    formdata.append('email',userInfo.email)
-    formdata.append('password',userInfo.password)
-    formdata.append('phone',userInfo.phone)
+    // const formdata = new FormData()
+    // formdata.append('firstName',userInfo.firstName)
+    // formdata.append('lastName',userInfo.lastName)
+    // formdata.append('email',userInfo.email)
+    // formdata.append('password',userInfo.password)
+    // formdata.append('phone',userInfo.phone)
     console.log(userInfo)
     
       fetch('http://localhost:5000/api/signup', {
@@ -25,7 +25,7 @@ const Login = () => {
         headers: {
           'content-type': 'application/json'
       },
-        body: JSON.stringify(formdata)
+        body: JSON.stringify(userInfo)
       })
       .then(res=>res.json())
       .then(data=>console.log(data))

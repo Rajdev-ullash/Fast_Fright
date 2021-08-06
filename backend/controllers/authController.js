@@ -10,9 +10,9 @@ const router = require('../routers/authRouter');
 
 //mailgun 
 
-const mailgun = require("mailgun-js");
-const DOMAIN = 'sandbox9bac2bc5306745438b695ffd200aedb0.mailgun.org';
-const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN });
+// const mailgun = require("mailgun-js");
+// const DOMAIN = 'sandbox9bac2bc5306745438b695ffd200aedb0.mailgun.org';
+// const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN });
 
 exports.signup = async (req, res) =>{
     try {
