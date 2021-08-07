@@ -31,7 +31,6 @@ app.use(bodyParser.json())
 
 //middleware
 app.use('/api', authRoutes)
-app.use('/userInfo', authRoutes)
 
 // sslcommerz setup
 // app.use('/ssl-request', sslcommerzSetup);
