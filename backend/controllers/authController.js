@@ -207,3 +207,22 @@ exports.signin = async (req, res) => {
 //         res.redirect('/')
 //     }
 // })
+
+
+
+//get all user
+ exports.getAllUsers =  async (req, res)=>{
+    try{
+        const users = await User.find({
+        }).populate('parcelList')
+        res.status(200).json({
+            data: users,
+            message:'Success'
+        })
+    }catch (err){
+        console.log(err);
+        res.status(500).json({
+            message:'There was an error on the server side'
+        })
+    }
+}

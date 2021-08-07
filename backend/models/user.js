@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema({
     },
     emailToken: String,
     isVerified: Boolean,
+    parcelList:[{
+        type: mongoose.Types.ObjectId,
+        ref:'createParcel'
+    }],
 
 }, {timestamps:true})
 
