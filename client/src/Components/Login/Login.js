@@ -29,7 +29,7 @@ const Login = () => {
 
           console.log('a')
         }
-        else{
+        else {
           console.log(data.error)
         }
       })
