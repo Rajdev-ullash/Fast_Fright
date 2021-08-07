@@ -1,4 +1,17 @@
 const data= [
+    
+    {
+        "_id": "Dhaka",
+        "district": "Dhaka",
+        "price":"60",
+        "coordinates": "25.6279, 88.6332",
+        "upazilla": [
+            "Keraniganj",
+            "Gulshan",
+            "shahbag",
+            "savar"
+        ]
+    },
     {
         "_id": "dinajpur",
         "district": "Dinajpur",
