@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 
 // import routes
 const authRoutes = require('./routers/authRouter')
+const usrInfoRoute = require('./routers/UserInfoRouter')
 
 //app middleware
 app.use(morgan('dev'))
@@ -31,6 +32,7 @@ app.use(bodyParser.json())
 
 //middleware
 app.use('/api', authRoutes)
+app.use('/api', usrInfoRoute)
 
 // sslcommerz setup
 // app.use('/ssl-request', sslcommerzSetup);
