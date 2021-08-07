@@ -1,45 +1,18 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import "./Login.css";
-const Login = () => {
-  const history = useHistory()
-  const [user, setUser] = useState(true);
-  const [userInfo, setUerInfo] = useState({})
-  const handleChange = (e) => {
-    const newUserInfo = { ...userInfo }
-    newUserInfo[e.target.name] = e.target.value;
-    setUerInfo(newUserInfo)
-    console.log(newUserInfo)
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
+const SignIn = () => {
+    const [user, setUser] = useState(false)
+    const handleChange = () =>{
 
-    fetch('http://localhost:5000/api/signup', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(userInfo)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.error == 'signup successfully') {
-          history.push('/signIn')
+    }
+    const handleSubmit =()=>{
 
-          console.log('a')
-        }
-        else {
-          console.log(data.error)
-        }
-      })
-      .catch(err => console.log(err))
-
-
-
-  }
-  return (
-    <div className="mt-5 ">
+    }
+    
+    return (
+        <div>
+            <div className="mt-5 ">
       <div className=" ">
         <div className="d-flex justify-content-center">
           <div className="shadow p-5 col-md-4 login-container">
@@ -85,13 +58,6 @@ const Login = () => {
                   required
                 />
                 <br />
-                <input onBlur={handleChange}
-                  type="number"
-                  name="phone"
-                  className="form-control"
-                  placeholder="phone"
-                  required
-                />
                 <br />
                 {/* {user && (
                   <input onBlur={handleChange}
@@ -116,7 +82,7 @@ const Login = () => {
                   />}
                 <p>
                   {user ? "Already" : "Don't"} Have An account?{" "}
-                  <Link onClick={() => history.push('/signIn')}>
+                  <Link>
                     {user ? "Login" : "Create An Account"}
                   </Link>
                 </p>
@@ -127,6 +93,8 @@ const Login = () => {
       </div>
     </div>
   );
+        </div>
+    );
 };
 
-export default Login;
+export default SignIn;

@@ -3,6 +3,8 @@ import "./App.css";
 import AllHome from "./Components/AllHome/AllHome";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
 import Login from "./Components/Login/Login";
+import SignIn from "./Components/Login/SignIn";
+import Info from "./Components/AllHome/Home/Navbar/Info";
 function App() {
   return (
     <div>
@@ -16,6 +18,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signIn">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/Info">
+            <Info></Info>
           </Route>
         </Switch>
       </Router>

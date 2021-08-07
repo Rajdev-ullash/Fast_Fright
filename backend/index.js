@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 require('dotenv').config();
+// const {sslcommerzSetup} = require('./middlewares/sscommerz');
 
 const app = express();
 app.use(express.json())
@@ -30,6 +31,10 @@ app.use(bodyParser.json())
 
 //middleware
 app.use('/api', authRoutes)
+app.use('/userInfo', authRoutes)
+
+// sslcommerz setup
+// app.use('/ssl-request', sslcommerzSetup);
 
 
 const port = process.env.PORT
