@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
 const morgan = require('morgan');
 require('dotenv').config();
+// const {sslcommerzSetup} = require('./middlewares/sscommerz');
 
 
 const app = express();
@@ -52,6 +53,9 @@ app.use(bodyParser.json())
 
 //middleware
 app.use('/api', authRoutes)
+
+// sslcommerz setup
+// app.use('/ssl-request', sslcommerzSetup);
 
 
 const port = process.env.PORT
