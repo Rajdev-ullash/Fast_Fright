@@ -3,6 +3,7 @@ import "./App.css";
 import AllHome from "./Components/AllHome/AllHome";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
 import Login from "./Components/Login/Login";
+import SignIn from "./Components/Login/SignIn";
 function App() {
   return (
     <div>
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signIn">
+            <SignIn />
           </Route>
         </Switch>
       </Router>

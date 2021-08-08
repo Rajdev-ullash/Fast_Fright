@@ -1,87 +1,79 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
-  const [user, setUser] = useState(false);
-  const [userInfo, setUerInfo] = useState({})
+  const history = useHistory();
+  const [error, setError] = useState(false);
+  const [userInfo, setUerInfo] = useState({});
   const handleChange = (e) => {
-    const newUserInfo = { ...userInfo }
+    const newUserInfo = { ...userInfo };
     newUserInfo[e.target.name] = e.target.value;
-    setUerInfo(newUserInfo)
-    console.log(newUserInfo)
-  }
+    setUerInfo(newUserInfo);
+    console.log(newUserInfo);
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // const formdata = new FormData()
-    // formdata.append('firstName',userInfo.firstName)
-    // formdata.append('lastName',userInfo.lastName)
-    // formdata.append('email',userInfo.email)
-    // formdata.append('password',userInfo.password)
-    // formdata.append('phone',userInfo.phone)
-    console.log(userInfo)
-    
-      fetch('http://localhost:5000/api/signup', {
-        method: 'POST',
+    e.preventDefault();
+    if (userInfo.password === userInfo.confirmPassword) {
+      console.log(userInfo);
+
+      fetch("http://localhost:5000/api/signup", {
+        method: "POST",
         headers: {
-          'content-type': 'application/json'
-      },
-        body: JSON.stringify(userInfo)
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
       })
-      .then(res=>res.json())
-      .then(data=>console.log(data))
-      .catch(err=>console.log(err))
-
-    
-
-  }
+        .then((res) => res.json())
+        .then((data) => {
+          history.push("/signIn");
+          console.log(data);
+        })
+        .catch((err) => console.log(err));
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
   return (
     <div className="mt-5 ">
       <div className=" ">
         <div className="d-flex justify-content-center">
           <div className="shadow p-5 col-md-4 login-container">
-            <h3>{user ? "Create an account" : "Login"}</h3>
+            <h3 className="mb-4">Create An Account</h3>
             <div className="login ">
               <form onSubmit={handleSubmit}>
-                {user && (
-                  <input onBlur={handleChange}
-                    type="text"
-                    name="firstName"
-                    className="form-control"
-                    placeholder="First Name"
-                    required
-                  />
-                )}
-
-                <br />
-                {user && (
-                  <input onBlur={handleChange}
-                    type="text"
-                    name="lastName"
-                    className="form-control"
-                    placeholder="Last Name"
-                    required
-                  />
-                )}
-
-                <br />
-
-                <input onBlur={handleChange}
+                <input
+                  onBlur={handleChange}
                   type="text"
+                  name="firstName"
+                  className="form-control"
+                  placeholder="First Name"
+                  required
+                />
+
+                <br />
+                <input
+                  onBlur={handleChange}
+                  type="text"
+                  name="lastName"
+                  className="form-control"
+                  placeholder="Last Name"
+                  required
+                />
+
+                <br />
+
+                <input
+                  onBlur={handleChange}
+                  type="email"
                   name="email"
                   className="form-control"
                   placeholder="Email"
                   required
                 />
                 <br />
-                <input onBlur={handleChange}
-                  type="password"
-                  name="password"
-                  className="form-control"
-                  placeholder="password"
-                  required
-                />
-                <br />
-                <input onBlur={handleChange}
+                <input
+                  onBlur={handleChange}
                   type="number"
                   name="phone"
                   className="form-control"
@@ -89,31 +81,30 @@ const Login = () => {
                   required
                 />
                 <br />
-                {user && (
-                  <input onBlur={handleChange}
-                    type="password"
-                    name="confirmPassword"
-                    className="form-control"
-                    placeholder="confirm password"
-                    required
-                  />
-                )}
+                <input
+                  onBlur={handleChange}
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  placeholder="password"
+                  required
+                />
                 <br />
-                {user ?
-                  <input
-                    className="submit"
-                    type="submit"
-                    value="Sign Up"
-                  /> :
-                  <input
-                    className="submit"
-                    type="submit"
-                    value="Sign In"
-                  />}
-                <p>
-                  {user ? "Already" : "Don't"} Have An account?{" "}
-                  <Link onClick={() => setUser(!user)}>
-                    {user ? "Login" : "Create An Account"}
+                <input
+                  onBlur={handleChange}
+                  type="password"
+                  name="confirmPassword"
+                  className="form-control"
+                  placeholder="confirm password"
+                  required
+                />
+                {error && <p style={{ color: "red" }}>Password didn't match</p>}
+                {!error && <br />}
+                <input className="submit mt-3" type="submit" value="Sign Up" />
+                <p className="mt-3">
+                  Don't Have an Account{" "}
+                  <Link className="ms-2" to="/signIn">
+                    Login
                   </Link>
                 </p>
               </form>
