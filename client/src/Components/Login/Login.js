@@ -13,25 +13,20 @@ const Login = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-
-
-    fetch('http://localhost:5000/api/signup', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
+    // const formdata = new FormData()
+    // formdata.append('firstName',userInfo.firstName)
+    // formdata.append('lastName',userInfo.lastName)
+    // formdata.append('email',userInfo.email)
+    // formdata.append('password',userInfo.password)
+    // formdata.append('phone',userInfo.phone)
+    console.log(userInfo)
+    
+      fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
       },
-      body: JSON.stringify(userInfo)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.error == 'signup successfully') {
-          history.push('/signIn')
-
-          console.log('a')
-        }
-        else {
-          console.log(data.error)
-        }
+        body: JSON.stringify(userInfo)
       })
       .catch(err => console.log(err))
 

@@ -1,8 +1,8 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Home from "./Components/AllHome/Home/Home";
 import AllHome from "./Components/AllHome/AllHome";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
+import CreateParcel from "./Components/CreateParcel/CreateParcel";
 import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
@@ -20,11 +20,8 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/signIn">
-            <SignIn></SignIn>
-          </Route>
-          <Route path="/Info">
-            <Info></Info>
+          <Route path="/createParcel">
+            <CreateParcel></CreateParcel>
           </Route>
         </Switch>
       </Router>
