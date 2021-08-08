@@ -47,8 +47,8 @@ const Navbar = () => {
             <Link to="/login" className="nav-link active textColor ms-4">
               Login
             </Link>
-            <Link to="/signUp" className="nav-link active textColor ms-4">
-              Sign Up
+            <Link to="/createParcel" className="nav-link active textColor ms-4">
+              Create Parcel
             </Link>
             <div onClick={()=>handleUserClick()} className="nav-link active textColor ms-4 userItem">
               Test User

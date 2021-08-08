@@ -24,14 +24,11 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.error == 'signup successfully') {
+        if (data.message == "signup successfully") {
+          
           history.push('/signIn')
-
-          console.log('a')
         }
-        else {
-          console.log(data.error)
-        }
+          console.log(data)
       })
       .catch(err => console.log(err))
 
