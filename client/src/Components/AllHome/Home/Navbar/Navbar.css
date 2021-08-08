@@ -20,5 +20,12 @@ nav{
 .navbar-nav {
     background-color: #131313 !important;
 }
-/* .navbar-nav a{
-} */
+.userInfo{
+    margin-left: 83%;
+    z-index: 1000;
+    cursor: pointer;
+
+}
+.userItem{
+    cursor: pointer;
+}

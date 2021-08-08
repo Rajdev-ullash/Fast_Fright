@@ -47,12 +47,14 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 
 // import routes
 const authRoutes = require('./routers/authRouter')
+const parcelsRoute = require('./routers/parcelRoute')
 
 //app middleware
 
 
 //middleware
 app.use('/api', authRoutes)
+app.use('/api', parcelsRoute)
 
 
 const port = process.env.PORT

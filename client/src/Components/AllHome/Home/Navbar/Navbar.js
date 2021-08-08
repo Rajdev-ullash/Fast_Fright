@@ -1,8 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { faBullhorn, faInfoCircle, faTag, faUserAlt, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";
 const Navbar = () => {
+  const history = useHistory()
+  const [isTrue, setIsTrue] = useState(false)
+
+  const handleUserClick = () =>{
+    setIsTrue(!isTrue)
+
+  }
   return (
+    <div>
     <nav className="navbar navbar-expand-lg  navbar-light navbar-dark">
       <div className="container-fluid container">
         <Link to="/home" className="navbar-brand textColor">
@@ -37,13 +47,27 @@ const Navbar = () => {
             <Link to="/login" className="nav-link active textColor ms-4">
               Login
             </Link>
-            <Link to="/signUp" className="nav-link active textColor ms-4">
-              Sign Up
+            <Link to="/createParcel" className="nav-link active textColor ms-4">
+              Create Parcel
             </Link>
+            <div onClick={()=>handleUserClick()} className="nav-link active textColor ms-4 userItem">
+              Test User
+            </div>
           </div>
         </div>
       </div>
     </nav>
+      {
+        isTrue && <div className='position-absolute bg-white d-block userInfo p-3 rounded' >
+          <h5 className='userItem'> <FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon> Test User</h5>
+          <h5 className='userItem'> <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon> Announcement</h5>
+          <h5 className='userItem'> <FontAwesomeIcon icon={faTag}></FontAwesomeIcon> Order History</h5>
+          <h5 className='userItem' onClick={()=>history.push('/Info')}> <FontAwesomeIcon icon={faInfoCircle}></FontAwesomeIcon> Info</h5>
+          
+
+        </div>
+      }
+      </div>
   );
 };
 
