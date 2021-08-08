@@ -20,8 +20,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/createParcel">
-            <CreateParcel></CreateParcel>
+          <Route path="/signIn">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/Info">
+            <Info></Info>
           </Route>
         </Switch>
       </Router>
