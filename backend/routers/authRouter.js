@@ -17,12 +17,18 @@ const {checkLogin} = require('../middlewares/checkLogin');
 router.post('/signup', runValidation, userSignupValidator, signup);
 router.post('/signin', runValidation,userSigninValidator, signin);
 <<<<<<< HEAD
+<<<<<<< HEAD
 router.post
 =======
+=======
+>>>>>>> fab0aafc504194b405f84bb6cacda04067035ab1
 // router.post('/email-activate', activateAccount)
 
 //get all users 
 router.get('/getAllUsers', getAllUsers);
+<<<<<<< HEAD
+>>>>>>> fab0aafc504194b405f84bb6cacda04067035ab1
+=======
 >>>>>>> fab0aafc504194b405f84bb6cacda04067035ab1
 
 module.exports = router;

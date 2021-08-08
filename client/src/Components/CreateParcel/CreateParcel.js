@@ -2,8 +2,11 @@ import React from 'react';
 import DeliveryCharge from '../DeliveryCharge/DeliveryCharge';
 import NewParcelRequest from '../NewParcelRequest/NewParcelRequest';
 import './CreateParcel.css'
+import { useForm } from "react-hook-form";
 
 const CreateParcel = () => {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
   return (
     <div>
       <div className="row m-3">

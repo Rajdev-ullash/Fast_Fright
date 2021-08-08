@@ -55,10 +55,7 @@ const parcelsRoute = require('./routers/parcelRoute')
 
 //middleware
 app.use('/api', authRoutes)
-app.use('/api', usrInfoRoute)
-
-// sslcommerz setup
-// app.use('/ssl-request', sslcommerzSetup);
+app.use('/api', parcelsRoute)
 
 
 const port = process.env.PORT
