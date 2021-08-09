@@ -21,7 +21,7 @@ const Home = () => {
       <Testominal></Testominal>
       <Faq></Faq>
       <Footer></Footer>
-      <HocParcel></HocParcel>
+      
     </div>
   );
 };
