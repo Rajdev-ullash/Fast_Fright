@@ -26,6 +26,9 @@ function App() {
           <Route path="/Info">
             <Info></Info>
           </Route>
+          <Route path="/createParcel">
+            <CreateParcel></CreateParcel>
+          </Route>
         </Switch>
       </Router>
     </div>

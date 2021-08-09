@@ -1,5 +1,6 @@
 import React from "react";
 import CreateParcel from "../../CreateParcel/CreateParcel";
+import HocParcel from "../../HocParcel/HocParcel";
 import BusinessInfo from "./BusinessInfo/BusinessInfo";
 import Choose_us from "./Choose_us/Choose_us";
 import Faq from "./Faq/Faq";
@@ -20,6 +21,7 @@ const Home = () => {
       <Testominal></Testominal>
       <Faq></Faq>
       <Footer></Footer>
+      <HocParcel></HocParcel>
     </div>
   );
 };
