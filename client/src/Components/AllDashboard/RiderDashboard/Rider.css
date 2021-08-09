@@ -6,3 +6,11 @@
     border: .5px solid red;
     background-color: azure;
 }
+.riderDashTop{
+    
+    background-color: aquamarine;
+}
+.riderList{
+    list-style: none;
+    padding-left: 60px;
+}
