@@ -214,7 +214,7 @@ exports.signin = async (req, res) => {
  exports.getAllUsers =  async (req, res)=>{
     try{
         const users = await User.find({
-        }).populate('parcelList')
+        }).populate('parcelList').sort('-createdAt')
         res.status(200).json({
             data: users,
             message:'Success'

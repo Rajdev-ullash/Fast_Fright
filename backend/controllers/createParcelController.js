@@ -31,7 +31,7 @@ exports.createParcel = async (req, res)=>{
 //get all parcel
 exports.getParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({}).populate('user', -instructions).select({date:0});
+        const data = createParcel.find({}).sort('-createdAt').populate('user', -instructions).select({date:0});
         res.status(200).json({
             result:data,
             message:'find all parcel successfully'
@@ -48,7 +48,7 @@ exports.getParcel = async (req, res)=>{
 
 exports.getSpecificParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({ _id: req.params.id })
+        const data = createParcel.find({ _id: req.params.id }).sort('-createdAt')
             res.status(200).json({
             result: data,
             message: 'Specific parcel find successfully'
