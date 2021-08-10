@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Info = () => {
     return (
@@ -27,7 +27,7 @@ const Info = () => {
                 </div>
             </form>
         </div>
-    );
+  );
 };
 
 export default Info;
