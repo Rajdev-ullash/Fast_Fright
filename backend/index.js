@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 // const sgMail = require('@sendgrid/mail');
 const morgan = require('morgan');
 require('dotenv').config();
+// const {sslcommerzSetup} = require('./middlewares/sscommerz');
 
 
 const app = express();
@@ -49,6 +50,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 const authRoutes = require('./routers/authRouter')
 const parcelsRoute = require('./routers/parcelRoute')
 const requestRider = require('./routers/ridingRequestRoute')
+const usrInfoRoute = require('./routers/UserInfoRouter')
 
 //app middleware
 
@@ -57,6 +59,11 @@ const requestRider = require('./routers/ridingRequestRoute')
 app.use('/api', authRoutes)
 app.use('/api', parcelsRoute)
 app.use('/api', requestRider)
+app.use('/api', usrInfoRoute)
+
+// sslcommerz setup
+// app.use('/ssl-request', sslcommerzSetup);
+
 
 const port = process.env.PORT
 app.listen(port, ()=>{
