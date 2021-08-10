@@ -1,48 +1,61 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Link, Redirect, useHistory, useLocation } from "react-router-dom";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 const SignIn = () => {
-    const [user, setUser] = useState(false)
-    const handleChange = () =>{
+  const history = useHistory();
+  const [signInInfo, setSignInInfo] = useState({});
+  const handleChange = (e) => {
+    const newSignInInfo = { ...signInInfo };
+    newSignInInfo[e.target.name] = e.target.value;
+    setSignInInfo(newSignInInfo);
+    console.log(newSignInInfo);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(signInInfo);
+    fetch("http://localhost:5000/api/signin", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(signInInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          Toastify({
+            text: data.error,
+            backgroundColor: "red",
+            duration: 3000,
+          }).showToast();
+        } else {
+          const access_token = data.access_token;
+          const jsonAccessToken = JSON.stringify(access_token);
+          localStorage.setItem("token", jsonAccessToken);
 
-    }
-    const handleSubmit =()=>{
-
-    }
-    
-    return (
-        <div>
-            <div className="mt-5 ">
+          console.log(data);
+          Toastify({
+            text: data.message,
+            duration: 3000,
+          }).showToast();
+          history.push("/");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  return (
+    <div className="mt-5 ">
       <div className=" ">
         <div className="d-flex justify-content-center">
           <div className="shadow p-5 col-md-4 login-container">
-            <h3>{user ? "Create an account" : "Login"}</h3>
+            <h3>Login</h3>
             <div className="login ">
               <form onSubmit={handleSubmit}>
-                {user && (
-                  <input onBlur={handleChange}
-                    type="text"
-                    name="firstName"
-                    className="form-control"
-                    placeholder="First Name"
-                    required
-                  />
-                )}
-
-                <br />
-                {user && (
-                  <input onBlur={handleChange}
-                    type="text"
-                    name="lastName"
-                    className="form-control"
-                    placeholder="Last Name"
-                    required
-                  />
-                )}
-
                 <br />
 
-                <input onBlur={handleChange}
+                <input
+                  onBlur={handleChange}
                   type="text"
                   name="email"
                   className="form-control"
@@ -50,7 +63,8 @@ const SignIn = () => {
                   required
                 />
                 <br />
-                <input onBlur={handleChange}
+                <input
+                  onBlur={handleChange}
                   type="password"
                   name="password"
                   className="form-control"
@@ -58,32 +72,13 @@ const SignIn = () => {
                   required
                 />
                 <br />
+
                 <br />
-                {/* {user && (
-                  <input onBlur={handleChange}
-                    type="password"
-                    name="confirmPassword"
-                    className="form-control"
-                    placeholder="confirm password"
-                    required
-                  />
-                )} */}
-                <br />
-                {user ?
-                  <input
-                    className="submit"
-                    type="submit"
-                    value="Sign Up"
-                  /> :
-                  <input
-                    className="submit"
-                    type="submit"
-                    value="Sign In"
-                  />}
-                <p>
-                  {user ? "Already" : "Don't"} Have An account?{" "}
-                  <Link>
-                    {user ? "Login" : "Create An Account"}
+                <input className="submit" type="submit" value="Sign In" />
+                <p className="mt-3">
+                  Already Have An account
+                  <Link className="ms-2" to="/login">
+                    Create An Account
                   </Link>
                 </p>
               </form>
@@ -93,8 +88,6 @@ const SignIn = () => {
       </div>
     </div>
   );
-        </div>
-    );
 };
 
 export default SignIn;
