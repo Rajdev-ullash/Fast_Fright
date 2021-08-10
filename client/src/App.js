@@ -19,6 +19,9 @@ function App() {
           <Route path="/businessInformation">
             <BusinessInformation></BusinessInformation>
           </Route>
+          <Route path="/createParcel">
+            <CreateParcel />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
