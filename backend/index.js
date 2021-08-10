@@ -48,6 +48,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 // import routes
 const authRoutes = require('./routers/authRouter')
 const parcelsRoute = require('./routers/parcelRoute')
+const requestRider = require('./routers/ridingRequestRoute')
 
 //app middleware
 
@@ -55,7 +56,7 @@ const parcelsRoute = require('./routers/parcelRoute')
 //middleware
 app.use('/api', authRoutes)
 app.use('/api', parcelsRoute)
-
+app.use('/api', requestRider)
 
 const port = process.env.PORT
 app.listen(port, ()=>{
