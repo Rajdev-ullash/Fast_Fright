@@ -8,7 +8,12 @@ const RequestingRider = require('../models/requestRider')
 
 exports.RequestingRider = async (req, res) =>{
     const newRider = new RequestingRider({
-        ...req.body
+        name:req.body.name,
+        email:req.body.email,
+        phone: req.body.phone,
+        address: req.body.address,
+        deliveryArea: req.body.deliveryArea,
+        vehicle: req.body.vehicle,
     })
     try{
         await newRider.save()
