@@ -2,9 +2,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AllHome from "./Components/AllHome/AllHome";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
+import CreateParcel from "./Components/CreateParcel/CreateParcel";
 import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
+import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
+import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
 function App() {
   return (
     <div>
@@ -24,6 +27,12 @@ function App() {
           </Route>
           <Route path="/Info">
             <Info></Info>
+          </Route>
+          <Route path="/RiderDashboard">
+            <Rider></Rider>
+          </Route>
+          <Route path="/AdminDashboard">
+            <AdminDashBoard></AdminDashBoard>
           </Route>
         </Switch>
       </Router>

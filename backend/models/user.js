@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
+// const crypto = require('crypto');
 
 //user schema 
 const userSchema = new mongoose.Schema({
@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema({
     },
     emailToken: String,
     isVerified: Boolean,
+    parcelList:[{
+        type: mongoose.Types.ObjectId,
+        ref:'createParcel'
+    }],
 
 }, {timestamps:true})
 
