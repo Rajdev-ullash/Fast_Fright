@@ -49,8 +49,11 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 // import routes
 const authRoutes = require('./routers/authRouter')
 const parcelsRoute = require('./routers/parcelRoute')
+<<<<<<< HEAD
 const requestRider = require('./routers/ridingRequestRoute')
 const usrInfoRoute = require('./routers/UserInfoRouter')
+=======
+>>>>>>> e9a4e820fc934be7082092e64df33283ff9911c5
 
 //app middleware
 
@@ -58,11 +61,14 @@ const usrInfoRoute = require('./routers/UserInfoRouter')
 //middleware
 app.use('/api', authRoutes)
 app.use('/api', parcelsRoute)
+<<<<<<< HEAD
 app.use('/api', requestRider)
 app.use('/api', usrInfoRoute)
 
 // sslcommerz setup
 // app.use('/ssl-request', sslcommerzSetup);
+=======
+>>>>>>> e9a4e820fc934be7082092e64df33283ff9911c5
 
 
 const port = process.env.PORT
