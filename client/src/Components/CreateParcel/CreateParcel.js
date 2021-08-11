@@ -3,9 +3,9 @@ import DeliveryCharge from '../DeliveryCharge/DeliveryCharge';
 import NewParcelRequest from '../NewParcelRequest/NewParcelRequest';
 import './CreateParcel.css'
 import { useForm } from "react-hook-form";
-import Dropdown from 'react-multilevel-dropdown';
+
 import data from '../../fakeData'
-import DropDownMenuSelect from 'react-nested-menu-selector';
+
 const CreateParcel = () => {
   //console.log(district,upazilla);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
