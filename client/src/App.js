@@ -8,6 +8,7 @@ import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
+import Join_rider from "./Components/AllHome/Home/Join_Rider/Join_rider";
 function App() {
   return (
     <div>
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/createParcel">
             <CreateParcel />
+          </Route>
+          <Route path="/rider">
+            <Join_rider />
           </Route>
           <Route path="/login">
             <Login />
