@@ -6,6 +6,7 @@ import CreateParcel from "./Components/CreateParcel/CreateParcel";
 import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
+import Join_rider from './Components/AllHome/Home/Join_Rider/Join_rider'
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
