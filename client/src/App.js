@@ -8,11 +8,7 @@ import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
-<<<<<<< HEAD
-import Join_rider from "./Components/AllHome/Home/Join_Rider/Join_rider";
-=======
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
->>>>>>> main
 function App() {
   return (
     <div>
