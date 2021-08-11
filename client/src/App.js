@@ -8,6 +8,7 @@ import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
+import TrackParcel from "./Components/TrackParcel/TrackParcel";
 function App() {
   return (
     <div>
@@ -33,6 +34,12 @@ function App() {
           </Route>
           <Route path="/AdminDashboard">
             <AdminDashBoard></AdminDashBoard>
+          </Route>
+          <Route path="/createParcel">
+            <CreateParcel></CreateParcel>
+          </Route>
+          <Route path="/trackParcel">
+            <TrackParcel></TrackParcel>
           </Route>
         </Switch>
       </Router>

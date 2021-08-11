@@ -6,18 +6,26 @@ const createParcel = require('../models/createParcel')
 // post parcel
 exports.createParcel = async (req, res)=>{
     const newParcel = new createParcel({
-        ...req.body,
+        customerName: req.body.name,
+        customerNumber:req.body.phone,
+        customerAddress:req.body.address,
+        weight:req.body.weight,
+        category: req.body.category,
+        deliveryArea: req.body.destination,
+        cashCollections:req.body.cashAmount,
+        productPrice:req.body.price,
+        instructions:req.body.advice
         // user:req.userId,
     })
     try{
         const postParcel = await newParcel.save()
-        await user.updateOne({
-            _id:req.userId
-        },{
-            $push:{
-                parcelList:postParcel._id
-            }
-        })
+        // await user.updateOne({
+        //     _id:req.userId
+        // },{
+        //     $push:{
+        //         parcelList:postParcel._id
+        //     }
+        // })
         res.status(200).json({
             message:'Parcel posted successfully'
         })
