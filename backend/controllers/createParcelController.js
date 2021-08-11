@@ -39,7 +39,8 @@ exports.createParcel = async (req, res)=>{
 //get all parcel
 exports.getParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({}).populate('user', -instructions).select({date:0});
+         const data = createParcel.find({}).populate('user', -instructions).select({date:0});
+        // const data = createParcel.find({});
         res.status(200).json({
             result:data,
             message:'find all parcel successfully'

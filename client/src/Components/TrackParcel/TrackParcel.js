@@ -1,6 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const TrackParcel = () => {
+    const [parcel, setParcel] = useState({})
+    console.log(parcel);
+
+   useEffect(()=>{
+       fetch('http://localhost:5000/api/getSpecificParcel/:id')
+       .then(res => res.json())
+       .then(data =>setParcel(data) )
+   },[])
     
     return (
         <div className="row">
