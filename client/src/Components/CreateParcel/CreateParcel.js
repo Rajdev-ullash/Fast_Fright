@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 const CreateParcel = () => {
   //console.log(district,upazilla);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register,reset, handleSubmit, watch, formState: { errors } } = useForm();
   const uniqueNumber = new Date().getUTCMilliseconds();
   const history = useHistory();
   const handleUniqueNumber= () => {
@@ -43,6 +43,7 @@ const CreateParcel = () => {
               body: JSON.stringify(parcelData) 
         })
         .then(res =>console.log('server side response',res) )
+        reset();
   };
 
   return (
