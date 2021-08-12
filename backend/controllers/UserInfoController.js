@@ -4,9 +4,10 @@ const UserInfo = require('../models/userInfo');
 exports.userInfo = async (req, res) => {
     try{
         const newInfo = new UserInfo({
-            name: req.body.name,
             shopName: req.body.shopName,
-            location: req.body.location
+            email: req.body.email,
+            number: req.body.number,
+            address: req.body.address
         }) 
         await newInfo.save();
         res.status(200).json({
@@ -14,7 +15,7 @@ exports.userInfo = async (req, res) => {
         })
     } 
     catch(err) {
-        res.status(400).json({
+        res.status(500).json({
             err: 'please insert your correct information'
         })
     }

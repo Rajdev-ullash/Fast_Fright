@@ -58,9 +58,13 @@ exports.getParcel = async (req, res)=>{
 
 exports.getSpecificParcel = async (req, res)=>{
     try{
+<<<<<<< HEAD
         console.log('unique',req.params.id);
         const data = createParcels.find({ uniqueNumber: req.params.id })
         
+=======
+        const data = createParcel.find({ _id: req.params.id }).sort('-createdAt')
+>>>>>>> 3e519ea55a6e5e7e1459b048c8df9aef798e9c30
             res.status(200).json({
             result: data,
             message: 'Specific parcel find successfully'
