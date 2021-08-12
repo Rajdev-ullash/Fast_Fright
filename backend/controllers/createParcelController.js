@@ -14,7 +14,8 @@ exports.createParcel = async (req, res)=>{
         deliveryArea: req.body.destination,
         cashCollections:req.body.cashAmount,
         productPrice:req.body.price,
-        instructions:req.body.advice
+        instructions:req.body.advice,
+        uniqueNumber:req.body.uniqueNumber
         // user:req.userId,
     })
     try{
@@ -57,7 +58,9 @@ exports.getParcel = async (req, res)=>{
 
 exports.getSpecificParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({ _id: req.params.id })
+        console.log('unique',req.params.id);
+        const data = createParcels.find({ uniqueNumber: req.params.id })
+        
             res.status(200).json({
             result: data,
             message: 'Specific parcel find successfully'
