@@ -2,22 +2,29 @@ import React from 'react';
 
 import RiderFakeData from '../RiderDashboard/RaiderFakeData';
 // import './Rider.css';
-
+import {  useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import Shared from '../Shared/Shared';
+import Navbar from '../../AllHome/Home/Navbar/Navbar';
 
 const AdminDashBoard = () => {
+    
+    const history = useHistory ()
+    const handleClick = (id)=>{
+        history.push(`/AdminBooking/${id}`)
+    }
     return (
         <div>
+            <Navbar></Navbar>
             <div className='row '>
                 <div className='col-md-2 py-2 riderDashTop text-center'>
-                    <h4 className='pl-3'>Fast Fright</h4>
+                    {/* <h4 className='pl-3'>Fast Fright</h4> */}
                 </div>
                 <div className='col-md-10 pt-2'>
                     <div className='d-flex justify-content-between'>
                         <h4 >Order Lists</h4>
-                        <h4 style={{ paddingRight: '20px' }}>Test User</h4>
+                        {/* <h4 style={{ paddingRight: '20px' }}>Test User</h4> */}
                     </div>
                 </div>
 
@@ -53,7 +60,7 @@ const AdminDashBoard = () => {
                                 <p>{ride.catagory}</p>
                             </div>
                             <div className='pt-3'>
-                                <button className="btn btn-primary">View Details</button>
+                                <button className="btn btn-primary" onClick={()=>handleClick(ride.id)} >View Details</button>
                             </div>
                         </div>)
                     }

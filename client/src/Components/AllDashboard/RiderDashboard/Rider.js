@@ -1,11 +1,15 @@
 import React from 'react';
 import RiderFakeData from './RaiderFakeData';
 import './Rider.css';
-
+import {  useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Rider = () => {
+    const history = useHistory()
+    const handleClick = (id)=>{
+        history.push(`/RiderBooking/${id}`)
+    }
     return (
         <div>
             <div className='row '>
@@ -48,7 +52,7 @@ const Rider = () => {
                                 <p>{ride.catagory}</p>
                             </div>
                             <div className='pt-3'>
-                                <button className="btn btn-primary">View Details</button>
+                                <button className="btn btn-primary" onClick={()=>handleClick(ride.id)}>View Details</button>
                             </div>
                         </div>)
                     }

@@ -8,6 +8,8 @@ import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
+import RaiderBookingDetails from "./Components/AllDashboard/RiderDashboard/RaiderBookingDetails/RaiderBookingDetails";
+import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
 function App() {
   return (
     <div>
@@ -30,6 +32,9 @@ function App() {
           </Route>
           <Route path="/RiderDashboard">
             <Rider></Rider>
+          </Route>
+          <Route path="/AdminBooking/:id">
+            <AdminBookingDetails></AdminBookingDetails>
           </Route>
           <Route path="/AdminDashboard">
             <AdminDashBoard></AdminDashBoard>
