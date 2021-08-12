@@ -8,7 +8,7 @@ import data from '../../fakeData';
 import { useHistory } from "react-router-dom";
 
 const CreateParcel = () => {
-  //console.log(district,upazilla);
+  //console.log(district,upazillakkkk);
   const { register,reset, handleSubmit, watch, formState: { errors } } = useForm();
   const uniqueNumber = new Date().getUTCMilliseconds();
   const history = useHistory();
