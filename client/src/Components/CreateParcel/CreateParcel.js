@@ -4,29 +4,52 @@ import NewParcelRequest from '../NewParcelRequest/NewParcelRequest';
 import './CreateParcel.css'
 import { useForm } from "react-hook-form";
 
-import data from '../../fakeData'
+import data from '../../fakeData';
+import { useHistory } from "react-router-dom";
 
 const CreateParcel = () => {
   //console.log(district,upazilla);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const uniqueNumber = new Date().getUTCMilliseconds();
+  const history = useHistory();
+  const handleUniqueNumber= () => {
+    const id=uniqueNumber;
+    console.log(id);
+    // history.push("/trackParcel/"+id);
+    
+  }
   
   const onSubmit = data => {
     const url  =`http://localhost:5000/api/createParcel`;
          
-
+      const parcelData={
+        name:data.name,
+        email:data.email,
+        address:data.address,
+        phone:data.phone,
+        weight:data.weight,
+        category:data.category,
+        destination:data.destination,
+        cashAmount:data.cashAmount,
+        price:data.price,
+        advice:data.advice,
+        uniqueNumber
+        };
+       // console.log(parcelData);
         fetch(url,{
             method:'POST',
             headers: {
                 'Content-type': 'application/json'},
-              body: JSON.stringify(data) 
+              body: JSON.stringify(parcelData) 
         })
         .then(res =>console.log('server side response',res) )
   };
 
   return (
 
-    <div className="row m-3">
+    <div className="row m-3"  >
       <div className="col-md-8">
+       
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="ship-container">
             <h4>Ship From raj   choose different shop</h4>
@@ -95,7 +118,7 @@ const CreateParcel = () => {
               </div>
             </div>
           
-          <input type="submit" />
+          <input onClick={handleUniqueNumber} type="submit" />
         </form>
        
       </div>

@@ -9,9 +9,15 @@ import Info from "./Components/AllHome/Home/Navbar/Info";
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
+import { createContext } from "react";
+import { useState } from "react";
+export const UserContext = createContext();
+
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
     <div>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]} >
       <Router>
         <Switch>
           <Route exact path="/">
@@ -38,11 +44,12 @@ function App() {
           <Route path="/createParcel">
             <CreateParcel></CreateParcel>
           </Route>
-          <Route path="/trackParcel">
+          <Route path="/trackParcel/:id">
             <TrackParcel></TrackParcel>
           </Route>
         </Switch>
       </Router>
+      </UserContext.Provider>
     </div>
   );
 }
