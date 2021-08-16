@@ -2,34 +2,35 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/user');
-const riderAuth = require('../models/riderAuth')
-const router = require('../routers/authRouter');
+const riderAuth = require('../models/riderAuthModel')
+
 const RequestingRider = require('../models/requestRider')
 
 exports.riderSignUp = async (req, res) =>{
     try {
-        const riderSignUp  = await User.findOne({email: req.body.email});
+        const riderSignUp  = await RequestingRider.findById({_id: req.body.riderId});
+        console.log(riderSignUp);
             if(riderSignUp){
                 res.status(404).json({
-                    error: 'Email is already taken'
+                    error: 'You are not approved by admin as a rider'
                 })
             }
              else{
                 const hashPassword = await bcrypt.hash(req.body.password, 10);
-                const newUser = new User({
+                const newRiderUser = new riderAuth({
                     name: req.body.name,
                     email: req.body.email,
                     password: hashPassword,
                     phone: req.body.phone,
+                    riderId: req.body.riderId
                     // emailToken: req.crypto.randomBytes(64).toString('hex'),
                     // isVerified: false,
                 });
 
                 // User.regis
-                await newUser.save();
+                await newRiderUser.save();
                 res.status(200).json({
-                    newUser,
+                    newRiderUser,
                     message: 'signup successfully',
                 });
             }
@@ -40,3 +41,5 @@ exports.riderSignUp = async (req, res) =>{
         });
     }
 }
+
+

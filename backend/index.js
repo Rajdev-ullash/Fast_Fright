@@ -51,7 +51,7 @@ const authRoutes = require('./routers/authRouter')
 const parcelsRoute = require('./routers/parcelRoute')
 const requestRider = require('./routers/ridingRequestRoute')
 const usrInfoRoute = require('./routers/UserInfoRouter')
-
+const riderAuth = require('./routers/riderAuthRouter')
 //app middleware
 
 
@@ -60,6 +60,7 @@ app.use('/api', authRoutes)
 app.use('/api', parcelsRoute)
 app.use('/api', requestRider)
 app.use('/api', usrInfoRoute)
+app.use('/api', riderAuth)
 
 // sslcommerz setup
 // app.use('/ssl-request', sslcommerzSetup);

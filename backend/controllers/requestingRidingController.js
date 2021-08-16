@@ -42,3 +42,22 @@ exports.getRidingRequest=  async (req, res)=>{
         })
     }
 }
+
+// put method update
+
+exports.updateStatus = async (req, res) =>{
+    try{
+        const result = await RequestingRider.findByIdAndUpdate({ _id: req.params.id }, {
+            $set: {
+                status: 'active'
+            }
+        },{ new: true, useFindAndModify: false })
+        res.status(200).json({
+            message: 'Status updated successfully'
+        })
+    }catch(err){
+        res.status(500).json({
+            error: 'There was a server error'
+        })
+    }
+}
