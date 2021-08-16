@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../../App";
 import "./Login.css";
 const Login = () => {
+
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log(loggedInUser);
   const history = useHistory();
   const [error, setError] = useState(false);
   const [userInfo, setUerInfo] = useState({});
@@ -10,6 +15,7 @@ const Login = () => {
     newUserInfo[e.target.name] = e.target.value;
     setUerInfo(newUserInfo);
     console.log(newUserInfo);
+    setLoggedInUser(newUserInfo);
   };
   const handleSubmit = (e) => {
     e.preventDefault();

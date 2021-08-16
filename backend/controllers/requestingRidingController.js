@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 
 // require models
-const RequestingRider = require('../models/requestRider')
+const RequestingRider = require("../models/requestRider");
 
-// post requesting riding 
+// post requesting riding
 
 exports.RequestingRider = async (req, res) =>{
     const newRider = new RequestingRider({
