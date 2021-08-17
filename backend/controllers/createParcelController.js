@@ -6,18 +6,26 @@ const createParcel = require('../models/createParcel')
 // post parcel
 exports.createParcel = async (req, res)=>{
     const newParcel = new createParcel({
-        ...req.body,
+        customerName: req.body.name,
+        customerNumber:req.body.phone,
+        customerAddress:req.body.address,
+        weight:req.body.weight,
+        category: req.body.category,
+        deliveryArea: req.body.destination,
+        cashCollections:req.body.cashAmount,
+        productPrice:req.body.price,
+        instructions:req.body.advice
         // user:req.userId,
     })
     try{
         const postParcel = await newParcel.save()
-        await user.updateOne({
-            _id:req.userId
-        },{
-            $push:{
-                parcelList:postParcel._id
-            }
-        })
+        // await user.updateOne({
+        //     _id:req.userId
+        // },{
+        //     $push:{
+        //         parcelList:postParcel._id
+        //     }
+        // })
         res.status(200).json({
             message:'Parcel posted successfully'
         })
@@ -31,7 +39,8 @@ exports.createParcel = async (req, res)=>{
 //get all parcel
 exports.getParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({}).populate('user', -instructions).select({date:0});
+         const data = createParcel.find({}).populate('user', -instructions).select({date:0});
+        // const data = createParcel.find({});
         res.status(200).json({
             result:data,
             message:'find all parcel successfully'
@@ -48,7 +57,7 @@ exports.getParcel = async (req, res)=>{
 
 exports.getSpecificParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({ _id: req.params.id })
+        const data = createParcel.find({ _id: req.params.id }).sort('-createdAt')
             res.status(200).json({
             result: data,
             message: 'Specific parcel find successfully'

@@ -6,9 +6,10 @@ import CreateParcel from "./Components/CreateParcel/CreateParcel";
 import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
+import Join_rider from './Components/AllHome/Home/Join_Rider/Join_rider'
 import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
 import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
-import RaiderBookingDetails from "./Components/AllDashboard/RiderDashboard/RaiderBookingDetails/RaiderBookingDetails";
+import TrackParcel from "./Components/TrackParcel/TrackParcel";
 import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
 function App() {
   return (
@@ -20,6 +21,12 @@ function App() {
           </Route>
           <Route path="/businessInformation">
             <BusinessInformation></BusinessInformation>
+          </Route>
+          <Route path="/createParcel">
+            <CreateParcel />
+          </Route>
+          <Route path="/rider">
+            <Join_rider />
           </Route>
           <Route path="/login">
             <Login />
@@ -38,6 +45,12 @@ function App() {
           </Route>
           <Route path="/AdminDashboard">
             <AdminDashBoard></AdminDashBoard>
+          </Route>
+          <Route path="/createParcel">
+            <CreateParcel></CreateParcel>
+          </Route>
+          <Route path="/trackParcel">
+            <TrackParcel></TrackParcel>
           </Route>
         </Switch>
       </Router>

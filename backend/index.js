@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 // const sgMail = require('@sendgrid/mail');
 const morgan = require('morgan');
 require('dotenv').config();
+// const {sslcommerzSetup} = require('./middlewares/sscommerz');
 
 
 const app = express();
