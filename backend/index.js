@@ -52,6 +52,8 @@ const parcelsRoute = require('./routers/parcelRoute')
 const requestRider = require('./routers/ridingRequestRoute')
 const usrInfoRoute = require('./routers/UserInfoRouter')
 const riderAuth = require('./routers/riderAuthRouter')
+const reviewRoute=require('./routers/reviewRoute')
+
 //app middleware
 
 
@@ -64,6 +66,7 @@ app.use('/api', riderAuth)
 
 // sslcommerz setup
 // app.use('/ssl-request', sslcommerzSetup);
+app.use('/api',reviewRoute)
 
 
 const port = process.env.PORT
