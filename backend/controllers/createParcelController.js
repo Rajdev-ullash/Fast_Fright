@@ -14,7 +14,8 @@ exports.createParcel = async (req, res)=>{
         deliveryArea: req.body.destination,
         cashCollections:req.body.cashAmount,
         productPrice:req.body.price,
-        instructions:req.body.advice
+        instructions:req.body.advice,
+        uniqueNumber:req.body.uniqueNumber
         // user:req.userId,
     })
     try{
