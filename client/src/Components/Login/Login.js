@@ -6,28 +6,28 @@ import "./Login.css";
 const Login = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser);
+  console.log('loggg',loggedInUser);
   const history = useHistory();
   const [error, setError] = useState(false);
   const [userInfo, setUerInfo] = useState({});
   const handleChange = (e) => {
-    const newUserInfo = { ...userInfo };
+    const newUserInfo = { ...loggedInUser };
     newUserInfo[e.target.name] = e.target.value;
-    setUerInfo(newUserInfo);
-    console.log(newUserInfo);
+    // setUerInfo(newUserInfo);
+    console.log('new user',newUserInfo);
     setLoggedInUser(newUserInfo);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userInfo.password === userInfo.confirmPassword) {
-      console.log(userInfo);
+    if (loggedInUser.password === loggedInUser.confirmPassword) {
+      console.log(loggedInUser);
 
       fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(userInfo),
+        body: JSON.stringify(loggedInUser),
       })
         .then((res) => res.json())
         .then((data) => {

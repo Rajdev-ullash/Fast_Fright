@@ -15,7 +15,11 @@ import { useState } from "react";
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({
+    firstName:'',
+    email:'',
+    password:''
+  })
   return (
     <div>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]} >
