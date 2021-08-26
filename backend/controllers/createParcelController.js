@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const createParcel = require('../models/createParcel')
-
+const ObjectId = require('mongodb').ObjectId;
 
 
 // post parcel
@@ -27,7 +27,8 @@ exports.createParcel = async (req, res)=>{
         //     }
         // })
         res.status(200).json({
-            message:'Parcel posted successfully'
+            message:'Parcel posted successfully',
+            // id:postParcel._id,
         })
     }catch(err) {
         res.status(500).json({
@@ -40,7 +41,7 @@ exports.createParcel = async (req, res)=>{
 exports.getParcel = async (req, res)=>{
     try{
          const data = createParcel.find({}).populate('user', -instructions).select({date:0});
-        // const data = createParcel.find({});
+        // const data = await createParcel.find({});
         res.status(200).json({
             result:data,
             message:'find all parcel successfully'
@@ -57,14 +58,16 @@ exports.getParcel = async (req, res)=>{
 
 exports.getSpecificParcel = async (req, res)=>{
     try{
-        const data = createParcel.find({ _id: req.params.id }).sort('-createdAt')
+        const data =await createParcel.find({ _id:ObjectId(req.params.id)}).sort('-createdAt')
             res.status(200).json({
             result: data,
             message: 'Specific parcel find successfully'
         })
     }catch(err){
+        console.log(err)
         res.status(500).json({
-            error: 'There was a server error'
+            error: 'There was a server error',
+            
         })
     }
 }
