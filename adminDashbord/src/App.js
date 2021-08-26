@@ -21,7 +21,7 @@ const App = () => {
           <Route  path='/Orders'>
             <DashboardOrders></DashboardOrders>
           </Route>
-          <Route  path='/AdminBooking/:id'>
+          <Route  path='/AdminBooking/:_id'>
             <AdminBooking></AdminBooking>
           </Route>
         </Switch>
