@@ -1,40 +1,39 @@
 import React from 'react';
-
-import RiderFakeData from '../RiderDashboard/RaiderFakeData';
-// import './Rider.css';
-
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import Shared from '../Shared/Shared';
+import Shared from '../../Shared/Shared';
+// import Navbar from '../../../../client/src/Components/AllHome/Home/Navbar/Navbar';
+import RiderFakeData from './RiderFakeData';
+import './AdminDashboard.css'
+import DashboardNav from '../../DashboardNavbar/DashboardNav';
 
-const AdminDashBoard = () => {
+const DashboardOrders = () => {
+    const history = useHistory()
+    const handleClick = (id) => {
+        history.push(`/AdminBooking/${id}`)
+    }
     return (
         <div>
-            <div className='row '>
-                <div className='col-md-2 py-2 riderDashTop text-center'>
-                    <h4 className='pl-3'>Fast Fright</h4>
+            {/* <div className='row '>
+                <div className='col-md-2 adminDashTop text-center'>
                 </div>
                 <div className='col-md-10 pt-2'>
                     <div className='d-flex justify-content-between'>
                         <h4 >Order Lists</h4>
-                        <h4 style={{ paddingRight: '20px' }}>Test User</h4>
                     </div>
                 </div>
 
-            </div>
+            </div> */}
+            <DashboardNav></DashboardNav>
+            <hr />
             <div className='row'>
-                <div className='col-md-2 riderBookCntainer '>
-                    {/* <div className='riderList pl-3'>
-                        <h6 className='py-1'> <FontAwesomeIcon icon={faBriefcase} /> Orders</h6>
-                        <h6> <FontAwesomeIcon icon={faCheckCircle} /> <span style={{ paddingRight: '12px' }}> On Process</span></h6>
-                        <h6 className='py-1'> <FontAwesomeIcon icon={faBriefcase} /> All Raiders</h6>
-                        <h6> <FontAwesomeIcon icon={faCheckCircle} /> <span style={{ paddingRight: '12px' }}> Complete</span></h6>
-                    </div> */}
+                <div className='col-md-2 px-0'>
                     <Shared></Shared>
                 </div>
-                <div className='col-md-10'>
+                <div className='col-md-10' style={{backgroundColor:'#f0f1f7'}}>
                     {
-                        RiderFakeData.map(ride => <div className='d-flex justify-content-around my-2 py-2 rounded ride-list-container'>
+                        RiderFakeData.map(ride => <div className='d-flex justify-content-around my-3 py-2 rounded ride-list-container shadow-sm '>
                             <h4>{ride.shopName}</h4>
                             <div>
                                 <small>Place Of Pickup</small>
@@ -53,7 +52,7 @@ const AdminDashBoard = () => {
                                 <p>{ride.catagory}</p>
                             </div>
                             <div className='pt-3'>
-                                <button className="btn btn-primary">View Details</button>
+                                <button className="btn btn-primary" onClick={() => handleClick(ride.id)} >View Details</button>
                             </div>
                         </div>)
                     }
@@ -63,4 +62,4 @@ const AdminDashBoard = () => {
     );
 };
 
-export default AdminDashBoard;
+export default DashboardOrders;
