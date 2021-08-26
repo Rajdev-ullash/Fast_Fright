@@ -36,9 +36,9 @@ const createParcelSchema = new mongoose.Schema({
     instructions:{
         type:String
     },
-    // uniqueNumber:{
-    //     type:String
-    // },
+    uniqueNumber:{
+        type:String
+    },
     user:{
         type: mongoose.Types.ObjectId,
         ref: 'User'
