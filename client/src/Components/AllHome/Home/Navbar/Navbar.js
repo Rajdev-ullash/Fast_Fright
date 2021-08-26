@@ -24,6 +24,7 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
       newUserInfo.password = '';
       setLoggedInUser(newUserInfo);
       setIsTrue(false);
+      localStorage.removeItem("user");
   }
   return (
     <div>
