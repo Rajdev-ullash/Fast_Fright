@@ -42,7 +42,12 @@ const CreateParcel = () => {
                 'Content-type': 'application/json'},
               body: JSON.stringify(parcelData) 
         })
-        .then(res =>console.log('server side response',res) )
+        .then(res =>{
+          console.log('server side response',res)
+          if(res){
+            history.push(`/trackParcel/${uniqueNumber}`)
+          }
+        } )
         reset();
   };
 
