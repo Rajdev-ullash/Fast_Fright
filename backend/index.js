@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 // const sgMail = require('@sendgrid/mail');
+const ObjectId = require('mongodb').ObjectId;
 const morgan = require('morgan');
 require('dotenv').config();
 // const {sslcommerzSetup} = require('./middlewares/sscommerz');
@@ -49,6 +50,9 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING,{
 // import routes
 const authRoutes = require('./routers/authRouter')
 const parcelsRoute = require('./routers/parcelRoute')
+const requestRider = require('./routers/ridingRequestRoute')
+const usrInfoRoute = require('./routers/UserInfoRouter')
+const riderAuth = require('./routers/riderAuthRouter')
 const reviewRoute=require('./routers/reviewRoute')
 
 //app middleware
@@ -57,6 +61,12 @@ const reviewRoute=require('./routers/reviewRoute')
 //middleware
 app.use('/api', authRoutes)
 app.use('/api', parcelsRoute)
+app.use('/api', requestRider)
+app.use('/api', usrInfoRoute)
+app.use('/api', riderAuth)
+
+// sslcommerz setup
+// app.use('/ssl-request', sslcommerzSetup);
 app.use('/api',reviewRoute)
 
 

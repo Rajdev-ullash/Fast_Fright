@@ -7,19 +7,20 @@ import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Join_rider from './Components/AllHome/Home/Join_Rider/Join_rider'
-import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
-import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
+// import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
+// import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
-<<<<<<< HEAD
-import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
-=======
+// import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
 import { createContext } from "react";
 import { useState } from "react";
 export const UserContext = createContext();
 
->>>>>>> 6592c93a20f1f8d102df2504422f8019970e203d
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({
+    firstName:'',
+    email:'',
+    password:''
+  })
   return (
     <div>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]} >
@@ -46,7 +47,7 @@ function App() {
           <Route path="/Info">
             <Info></Info>
           </Route>
-          <Route path="/RiderDashboard">
+          {/* <Route path="/RiderDashboard">
             <Rider></Rider>
           </Route>
           <Route path="/AdminBooking/:id">
@@ -54,7 +55,7 @@ function App() {
           </Route>
           <Route path="/AdminDashboard">
             <AdminDashBoard></AdminDashBoard>
-          </Route>
+          </Route> */}
           <Route path="/createParcel">
             <CreateParcel></CreateParcel>
           </Route>

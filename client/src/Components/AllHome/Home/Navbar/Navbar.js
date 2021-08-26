@@ -6,16 +6,25 @@ import {
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import {UserContext} from '../../../../App'
 import "./Navbar.css";
 const Navbar = () => {
+const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const [isTrue, setIsTrue] = useState(false);
 
   const handleUserClick = () => {
     setIsTrue(!isTrue);
   };
+  const handleLogOut = () =>{
+    const newUserInfo = {...loggedInUser};
+      newUserInfo.email = '';
+      newUserInfo.password = '';
+      setLoggedInUser(newUserInfo);
+      setIsTrue(false);
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg  navbar-light navbar-dark">
@@ -52,21 +61,22 @@ const Navbar = () => {
               <Link to="/rider" className="nav-link textColor active ms-4">
                 Join Us Rider
               </Link>
-              <Link to="/login" className="nav-link active textColor ms-4">
-                Login
-              </Link>
               <Link
                 to="/createParcel"
                 className="nav-link active textColor ms-4"
               >
                 Create Parcel
               </Link>
-              <div
+              {loggedInUser.email ?  <div
                 onClick={() => handleUserClick()}
                 className="nav-link active textColor ms-4 userItem"
               >
-                Test User
-              </div>
+                {loggedInUser.firstName}
+              </div>:
+              <Link  to="/login" className="nav-link active textColor ms-4">
+                Login
+              </Link>}
+
             </div>
           </div>
         </div>
@@ -88,6 +98,10 @@ const Navbar = () => {
           <h5 className="userItem" onClick={() => history.push("/Info")}>
             {" "}
             <FontAwesomeIcon icon={faInfoCircle}></FontAwesomeIcon> Info
+          </h5>
+          <h5 className="userItem" onClick={handleLogOut}>
+            {" "}
+            <FontAwesomeIcon icon={faTag}></FontAwesomeIcon> LogOut
           </h5>
         </div>
       )}

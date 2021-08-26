@@ -21,6 +21,6 @@ router.post('/signin', runValidation,userSigninValidator, signin);
 
 //get all users 
 router.get('/getAllUsers', getAllUsers);
-
+// router.post
 
 module.exports = router;

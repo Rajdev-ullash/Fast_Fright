@@ -16,7 +16,11 @@ const riderAuthSchema = new mongoose.Schema({
     password:{
         type: String,
         required : true
+    },
+    riderId:{
+        type: String,
+        required : true,
     }
-})
+},{timestamps:true})
 
 module.exports = mongoose.model('riderAuth', riderAuthSchema);

@@ -62,9 +62,14 @@ const Join_rider = () => {
               />
             </div>
             <div className="form-group p-1">
-              <label for="cars">Choose a Delivery Area:</label>
+              
+            </div>
+            <div className="form-group p-1">
+              <label for="cars">Choose a Delivery Area: </label>
+              
               <select
                 placeholder="select your address"
+                className="from-control"
                 {...register("deliveryArea")}
               >
                 <option value="Dhaka">Dhaka</option>
@@ -77,11 +82,9 @@ const Join_rider = () => {
               </select>
             </div>
             <div className="form-group p-1">
-              <label for="cars">Choose a Vehicle:</label>
+              <label for="cars">Choose a Vehicle: </label>
               <select
-                placeholder="select your vehicle"
-                {...register("vehicle")}
-              >
+                placeholder="select your vehicle"{...register("vehicle")}>
                 <option value="Cycle">Cycle</option>
                 <option value="Motor Bike">Motor Bike</option>
               </select>
