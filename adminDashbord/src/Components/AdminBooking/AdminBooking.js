@@ -1,15 +1,25 @@
 import { faCaravan, faHome, faMapMarkedAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { useParams } from 'react-router';
+import React,{useState, useEffect} from 'react';
+import { useParams  } from 'react-router';
+import {Link} from 'react-router-dom';
 import RiderFakeData from '../AdminDashboard/DashboardOrders/RiderFakeData';
 import DashboardNav from '../DashboardNavbar/DashboardNav';
 import './AdminBookin.css'
 
 const AdminBooking = () => {
-    const { id } = useParams()
-    console.log(id)
-    const singleOrder = RiderFakeData.find(order => order.id == id)
+    const { _id } = useParams()
+    console.log(_id)
+
+    const [riderDeatils, setRiderDeatils] =  useState([]);
+    console.log(riderDeatils);
+    useEffect(() => {
+        fetch('http://localhost:5000/api/getAllParcels')
+        .then(res => res.json())
+        .then(data => setRiderDeatils(data.result) )
+    }, [])
+
+    const singleOrder = riderDeatils.find(order => order?._id == _id)
     console.log(singleOrder)
     return (
         <div>
@@ -19,8 +29,7 @@ const AdminBooking = () => {
                 <div className='col-md-8'>
                     <div className='m-5 shadow rounded px-3 py-2'>
                         <div >
-                            <h3>{singleOrder.shopName}</h3>
-                            <small>{singleOrder.staffingDate}</small>
+                            <h3>{singleOrder?.customerName}</h3>
                             <hr />
                         </div>
                         <div className='bg-light text-primary rounded'>
@@ -32,12 +41,13 @@ const AdminBooking = () => {
                                     <FontAwesomeIcon icon={faMapMarkerAlt} size='2x' className='mt-2 ' ></FontAwesomeIcon>
                                     <div className='ps-2 '>
                                         <p className='p-0 mb-0'>From</p>
-                                        <p>{singleOrder.pickUpFrom}</p>
+                                        <p>{singleOrder?.deliveryArea}</p>
                                     </div>
                                 </div>
                                 <div className=' col-md-4'>
                                     <small>Catagory</small>
-                                    <p>{singleOrder.catagory}</p>
+                                    <p>{singleOrder?.category}</p>
+                                    
                                 </div>
                                 <div className=' col-md-4'>
                                     <small>Current Statuse</small>
@@ -49,7 +59,7 @@ const AdminBooking = () => {
                                     <FontAwesomeIcon icon={faMapMarkerAlt} size='2x' className='mt-2 ' ></FontAwesomeIcon>
                                     <div className='ps-2 '>
                                         <p className='p-0 mb-0'>Destination</p>
-                                        <p>{singleOrder.destination}</p>
+                                        <p>{singleOrder?.deliveryArea}</p>
                                     </div>
                                 </div>
                                 <div className='col-md-4'>
@@ -101,9 +111,12 @@ const AdminBooking = () => {
                         <div>
                             <button className="btn btn-primary">Submit</button>
                         </div>
+                        
                     </div>
                 </div>
+                 <Link to='/Orders' className='d-flex justify-content-center'><button className="btn btn-primary ">Home</button></Link>
             </div>
+           
         </div>
     );
 };

@@ -1,5 +1,7 @@
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import {  useHistory } from "react-router-dom";
 import AllHome from "./Components/AllHome/AllHome";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
 import CreateParcel from "./Components/CreateParcel/CreateParcel";
@@ -16,11 +18,22 @@ import { useState } from "react";
 export const UserContext = createContext();
 
 function App() {
+  const history = useHistory();
   const [loggedInUser, setLoggedInUser] = useState({
     firstName:'',
     email:'',
     password:''
-  })
+  });
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    if(user){
+      const newUser = {... loggedInUser}
+      newUser.firstName = user.firstName;
+      newUser.email = user.email;
+      setLoggedInUser(newUser);
+    }
+    console.log(user);
+  }, []);
   return (
     <div>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]} >

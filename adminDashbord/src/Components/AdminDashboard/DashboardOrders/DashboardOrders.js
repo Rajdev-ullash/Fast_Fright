@@ -1,5 +1,5 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import { useHistory, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import Shared from '../../Shared/Shared';
@@ -9,10 +9,17 @@ import './AdminDashboard.css'
 import DashboardNav from '../../DashboardNavbar/DashboardNav';
 
 const DashboardOrders = () => {
-    const history = useHistory()
-    const handleClick = (id) => {
-        history.push(`/AdminBooking/${id}`)
-    }
+    // const history = useHistory()
+    // const handleClick = (_id) => {
+    //     history.push(`/AdminBooking/${riderData._id}`)
+    // }
+    const [riderData, setRiderData] =  useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/api/getAllParcels')
+        .then(res => res.json())
+        .then(data => setRiderData(data.result) )
+    }, [])
+    console.log(riderData)
     return (
         <div>
             {/* <div className='row '>
@@ -33,26 +40,26 @@ const DashboardOrders = () => {
                 </div>
                 <div className='col-md-10' style={{backgroundColor:'#f0f1f7'}}>
                     {
-                        RiderFakeData.map(ride => <div className='d-flex justify-content-around my-3 py-2 rounded ride-list-container shadow-sm '>
-                            <h4>{ride.shopName}</h4>
+                        riderData.map(ride => <div className='d-flex justify-content-around my-3 py-2 rounded ride-list-container shadow-sm '>
+                            <h4>{ride.customerName}</h4>
                             <div>
                                 <small>Place Of Pickup</small>
-                                <p>{ride.pickUpFrom}</p>
+                                <p>{ride.deliveryArea}</p>
                             </div>
                             <div>
                                 <small>Place of Destination</small>
-                                <p>{ride.destination}</p>
+                                <p>{ride.deliveryArea}</p>
                             </div>
                             <div>
-                                <small>Stuffing Date</small>
-                                <p>{ride.staffingDate}</p>
+                                <small>Weight</small>
+                                <p>{ride.weight}</p>
                             </div>
                             <div>
                                 <small>Catagory</small>
-                                <p>{ride.catagory}</p>
+                                <p>{ride.category}</p>
                             </div>
                             <div className='pt-3'>
-                                <button className="btn btn-primary" onClick={() => handleClick(ride.id)} >View Details</button>
+                                <Link to = {`/AdminBooking/${ride._id}`} className="btn btn-primary" >View Details</Link>
                             </div>
                         </div>)
                     }
