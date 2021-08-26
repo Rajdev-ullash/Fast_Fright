@@ -19,13 +19,13 @@ exports.createParcel = async (req, res) => {
   });
   try {
     const postParcel = await newParcel.save();
-    // await user.updateOne({
-    //     _id:req.userId
-    // },{
-    //     $push:{
-    //         parcelList:postParcel._id
-    //     }
-    // })
+    await user.updateOne({
+        _id:req.userId
+    },{
+        $push:{
+            parcelList:postParcel._id
+        }
+    })
     res.status(200).json({
       message: "Parcel posted successfully",
     });
@@ -39,18 +39,15 @@ exports.createParcel = async (req, res) => {
 //get all parcel
 exports.getParcel = async (req, res) => {
   try {
-    // const data = createParcel
-    //   .find({})
-    //   .populate("user", -instructions)
-    //   .select({ date: 0 });
-    const data = await createParcel.find({});
+    const data = await createParcel.find({}).populate("user", -instructions).sort('-createdAt')
+    // const data = await createParcel.find({});
     res.status(200).json({
       result: data,
       message: "find all parcel successfully",
     });
   } catch (err) {
     res.status(500).json({
-      error: "There was a server error",
+      error: err,
     });
   }
 };
