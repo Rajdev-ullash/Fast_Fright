@@ -15,6 +15,7 @@ import TrackParcel from "./Components/TrackParcel/TrackParcel";
 // import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
 import { createContext } from "react";
 import { useState } from "react";
+import PrivateRoute from './Components/AllHome/PrivateRoute/PrivateRoute';
 export const UserContext = createContext();
 
 function App() {
@@ -45,12 +46,12 @@ function App() {
           <Route path="/businessInformation">
             <BusinessInformation></BusinessInformation>
           </Route>
-          <Route path="/createParcel">
+          <PrivateRoute path="/createParcel">
             <CreateParcel />
-          </Route>
-          <Route path="/rider">
+          </PrivateRoute>
+          <PrivateRoute path="/rider">
             <Join_rider />
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>

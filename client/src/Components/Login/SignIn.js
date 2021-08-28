@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Toastify from "toastify-js";
 
 import "toastify-js/src/toastify.css";
@@ -7,7 +7,8 @@ import { UserContext } from "../../App";
 const SignIn = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const history = useHistory();
-  const [signInInfo, setSignInInfo] = useState({});
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
   const handleChange = (e) => {
     const newSignInInfo = { ...loggedInUser };
     newSignInInfo[e.target.name] = e.target.value;
@@ -49,7 +50,7 @@ const SignIn = () => {
             text: data.message,
             duration: 2000,
           }).showToast();
-          history.push("/");
+          history.replace(from);
         } 
       })
       .catch((err) => console.log(err));
