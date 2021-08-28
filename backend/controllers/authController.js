@@ -133,6 +133,8 @@ exports.signup = async (req, res) =>{
 exports.signin = async (req, res) => {
     try {
         const user = await User.find({ email: req.body.email });
+        console.log(user)
+        console.log(user[0]);
         if (user && user.length > 0) {
             const isValidPassword = await bcrypt.compare(req.body.password, user[0].password);
             if (isValidPassword) {
@@ -143,7 +145,7 @@ exports.signin = async (req, res) => {
                     },
                     process.env.JWT_SECRET,
                     {
-                        expiresIn: '1h',
+                        expiresIn: '10d',
                     }
                 );
                 res.status(200).json({
@@ -156,6 +158,8 @@ exports.signin = async (req, res) => {
                     error: 'authentication failed',
                 });
             }
+            console.log(user[0]._id)
+            console.log(user[0].firstName);
         } else {
             res.status(401).json({
                 error: 'authentication failed',

@@ -11,6 +11,8 @@ import Join_rider from './Components/AllHome/Home/Join_Rider/Join_rider'
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
 import { createContext } from "react";
 import { useState } from "react";
+import ManageOrder from './Components/ManageOrder/ManageOrder';
+import OrderDetails from './Components/OrderDetails/OrderDetails';
 export const UserContext = createContext();
 
 function App() {
@@ -60,6 +62,12 @@ function App() {
           </Route>
           <Route path="/trackParcel/:id">
             <TrackParcel></TrackParcel>
+          </Route>
+          <Route path="/manageOrder">
+              <ManageOrder></ManageOrder>
+          </Route>
+          <Route path="/orderDetails/:_id">
+            <OrderDetails></OrderDetails>
           </Route>
         </Switch>
       </Router>

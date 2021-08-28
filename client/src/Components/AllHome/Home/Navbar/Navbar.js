@@ -92,7 +92,7 @@ const [loggedInUser, setLoggedInUser] = useContext(UserContext);
             {" "}
             <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon> Announcement
           </h5>
-          <h5 className="userItem">
+          <h5 onClick={() => history.push("/manageOrder")} className="userItem">
             {" "}
             <FontAwesomeIcon icon={faTag}></FontAwesomeIcon> Order History
           </h5>

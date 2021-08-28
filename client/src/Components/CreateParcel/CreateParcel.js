@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import DeliveryCharge from '../DeliveryCharge/DeliveryCharge';
 import NewParcelRequest from '../NewParcelRequest/NewParcelRequest';
 import './CreateParcel.css'
@@ -6,12 +6,14 @@ import { useForm } from "react-hook-form";
 
 import data from '../../fakeData';
 import { useHistory } from "react-router-dom";
+import { UserContext } from '../../App';
 
 const CreateParcel = () => {
   //console.log(district,upazillakkkk);
   const { register,reset, handleSubmit, watch, formState: { errors } } = useForm();
   const uniqueNumber = new Date().getUTCMilliseconds();
   const history = useHistory();
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const handleUniqueNumber= () => {
     const id=uniqueNumber;
     console.log(id);
@@ -24,7 +26,7 @@ const CreateParcel = () => {
          
       const parcelData={
         name:data.name,
-        email:data.email,
+        emails:data.email,
         address:data.address,
         phone:data.phone,
         weight:data.weight,
@@ -33,9 +35,10 @@ const CreateParcel = () => {
         cashAmount:data.cashAmount,
         price:data.price,
         advice:data.advice,
-        uniqueNumber
+        uniqueNumber,
+        email:loggedInUser.email
         };
-       // console.log(parcelData);
+       console.log(parcelData);
         fetch(url,{
             method:'POST',
             headers: {
