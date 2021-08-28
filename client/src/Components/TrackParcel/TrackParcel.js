@@ -9,7 +9,7 @@ import {
 const TrackParcel = () => {
     let { id } = useParams();
     const [parcel, setParcel] = useState({})
-    // console.log(parcel);
+    console.log(parcel);
     // console.log(id);
 
    useEffect(()=>{

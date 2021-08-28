@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import {  useHistory } from "react-router-dom";
 import AllHome from "./Components/AllHome/AllHome";
 import BusinessInformation from "./Components/AllHome/BusinessInformation/BusinessInformation";
 import CreateParcel from "./Components/CreateParcel/CreateParcel";
@@ -9,17 +8,15 @@ import Login from "./Components/Login/Login";
 import SignIn from "./Components/Login/SignIn";
 import Info from "./Components/AllHome/Home/Navbar/Info";
 import Join_rider from './Components/AllHome/Home/Join_Rider/Join_rider'
-// import Rider from "./Components/AllDashboard/RiderDashboard/Rider";
-// import AdminDashBoard from "./Components/AllDashboard/AdminDashboard/AdminDashBoard";
 import TrackParcel from "./Components/TrackParcel/TrackParcel";
-// import AdminBookingDetails from "./Components/AllDashboard/AdminDashboard/AdminBookingDetails/AdminBookingDetails";
 import { createContext } from "react";
 import { useState } from "react";
 import PrivateRoute from './Components/AllHome/PrivateRoute/PrivateRoute';
+import ManageOrder from './Components/ManageOrder/ManageOrder';
+import OrderDetails from './Components/OrderDetails/OrderDetails';
 export const UserContext = createContext();
 
 function App() {
-  const history = useHistory();
   const [loggedInUser, setLoggedInUser] = useState({
     firstName:'',
     email:'',
@@ -28,7 +25,7 @@ function App() {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
-      const newUser = {... loggedInUser}
+      const newUser = {...loggedInUser}
       newUser.firstName = user.firstName;
       newUser.email = user.email;
       setLoggedInUser(newUser);
@@ -61,20 +58,17 @@ function App() {
           <Route path="/Info">
             <Info></Info>
           </Route>
-          {/* <Route path="/RiderDashboard">
-            <Rider></Rider>
-          </Route>
-          <Route path="/AdminBooking/:id">
-            <AdminBookingDetails></AdminBookingDetails>
-          </Route>
-          <Route path="/AdminDashboard">
-            <AdminDashBoard></AdminDashBoard>
-          </Route> */}
           <Route path="/createParcel">
             <CreateParcel></CreateParcel>
           </Route>
           <Route path="/trackParcel/:id">
             <TrackParcel></TrackParcel>
+          </Route>
+          <Route path="/manageOrder">
+              <ManageOrder></ManageOrder>
+          </Route>
+          <Route path="/orderDetails/:_id">
+            <OrderDetails></OrderDetails>
           </Route>
         </Switch>
       </Router>

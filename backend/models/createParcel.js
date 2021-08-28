@@ -14,6 +14,10 @@ const createParcelSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    customerEmail:{
+        type:String,
+        required:true,
+    },
     weight:{
         type:String,
         required:true,
@@ -38,6 +42,9 @@ const createParcelSchema = new mongoose.Schema({
     },
     uniqueNumber:{
         type:String
+    },
+    email:{
+       type:String 
     },
     user:{
         type: mongoose.Types.ObjectId,
