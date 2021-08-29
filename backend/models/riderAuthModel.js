@@ -20,7 +20,11 @@ const riderAuthSchema = new mongoose.Schema({
     riderId:{
         type: String,
         required : true,
-    }
+    },
+    riderInfo:[{
+        type: mongoose.Types.ObjectId,
+        ref:'RequestingRider'
+    }]
 },{timestamps:true})
 
 module.exports = mongoose.model('riderAuth', riderAuthSchema);

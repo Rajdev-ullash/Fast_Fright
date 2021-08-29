@@ -94,11 +94,10 @@ exports.getSpecificParcel = async (req, res) => {
 };
 
 //delete parcel list
-exports.deleteSpecificParcel = (req, res) => {
+exports.deleteSpecificParcel = async (req, res) => {
   try {
-    const data = createParcel.deleteOne({ _id: req.params.id }).sort('-createdAt');
+    const data = await createParcel.deleteOne({ _id: req.params.id }).sort('-createdAt');
     res.status(200).json({
-      result: data,
       message: "Specific parcel delete successfully",
     });
   } catch (err) {
