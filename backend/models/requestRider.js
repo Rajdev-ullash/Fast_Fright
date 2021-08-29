@@ -31,9 +31,13 @@ const requestRiderSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['active', 'delete','notVerify'],
+        enum: ['active', 'delete','notVerify','verified'],
         default: 'notVerify',
     },
+    riderLoginInfo:[{
+        type: mongoose.Types.ObjectId,
+        ref:'riderAuth'
+    }]
 },{timestamps:true})
 
 module.exports = mongoose.model('RequestingRider', requestRiderSchema);

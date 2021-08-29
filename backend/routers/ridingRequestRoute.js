@@ -3,13 +3,17 @@ const router = express.Router();
 
 
 //import controllers
-const {RequestingRider,getRidingRequest, updateStatus} = require('../controllers/requestingRidingController')
+const {RequestingRider,getRidingRequest, updateStatus, getVerifiedRider, deleteRider} = require('../controllers/requestingRidingController')
 
 // router routes
 router.post('/ridingRequest', RequestingRider)
 
 router.get('/getAllridingRequest', getRidingRequest)
 
-router.put('/riderAccept', updateStatus)
+router.put('/riderAccept/:id', updateStatus)
+
+router.get('/getVerifiedRider', getVerifiedRider)
+
+router.delete('/deleteRider', deleteRider)
 
 module.exports = router;

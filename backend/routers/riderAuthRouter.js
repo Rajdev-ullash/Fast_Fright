@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 //import controllers
-const {riderSignUp} = require('../controllers/riderAuthController')
+const {riderSignUp, riderSignIn} = require('../controllers/riderAuthController')
 
 
 
@@ -13,6 +13,7 @@ const {riderSignUp} = require('../controllers/riderAuthController')
 
 
 // //import routes 
-router.post('/riderSignUp', riderSignUp)
+router.post('/riderSignUp', riderSignUp);
+router.post('/riderSignIn', riderSignIn)
 
 module.exports = router;
