@@ -12,13 +12,11 @@ const SignIn = () => {
   const handleChange = (e) => {
     const newSignInInfo = { ...loggedInUser };
     newSignInInfo[e.target.name] = e.target.value;
-    // setSignInInfo(newSignInInfo);
     setLoggedInUser(newSignInInfo);
     console.log("Singn Info", newSignInInfo);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('reslt',loggedInUser);
     fetch("http://localhost:5000/api/signin", {
       method: "POST",
       headers: {

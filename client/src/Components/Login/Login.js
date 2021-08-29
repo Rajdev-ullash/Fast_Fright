@@ -6,14 +6,12 @@ import "./Login.css";
 const Login = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log('loggg',loggedInUser);
   const history = useHistory();
   const [error, setError] = useState(false);
   const [userInfo, setUerInfo] = useState({});
   const handleChange = (e) => {
     const newUserInfo = { ...loggedInUser };
     newUserInfo[e.target.name] = e.target.value;
-    // setUerInfo(newUserInfo);
     console.log('new user',newUserInfo);
     setLoggedInUser(newUserInfo);
   };
