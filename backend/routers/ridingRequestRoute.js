@@ -14,6 +14,6 @@ router.put('/riderAccept/:id', updateStatus)
 
 router.get('/getVerifiedRider', getVerifiedRider)
 
-router.delete('/deleteRider', deleteRider)
+router.delete('/deleteRider/:id', deleteRider)
 
 module.exports = router;
