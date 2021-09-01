@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory, Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBriefcase, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import Shared from '../../Shared/Shared';
-// import Navbar from '../../../../client/src/Components/AllHome/Home/Navbar/Navbar';
-import RiderFakeData from './RiderFakeData';
 import './AdminDashboard.css'
 import DashboardNav from '../../DashboardNavbar/DashboardNav';
 
