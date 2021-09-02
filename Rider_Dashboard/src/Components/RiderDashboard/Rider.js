@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import RiderFakeData from "./RaiderFakeData";
 import "./Rider.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcase, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "../../App";
 
 const Rider = () => {
+  const [loggedInRider, setLoggedInRider] = useContext(UserContext);
+  console.log('logg',loggedInRider)
   return (
     <div>
       <div className="row ">
@@ -16,9 +19,13 @@ const Rider = () => {
         <div className="col-md-10 pt-2">
           <div className="d-flex justify-content-between">
             <h4>Order Lists</h4>
+
+            {loggedInRider.email? <Link to="/signUp" style={{ paddingRight: "20px" }}>
+            {loggedInRider.name}
+            </Link>:
             <Link to="/signUp" style={{ paddingRight: "20px" }}>
-              Login
-            </Link>
+              login
+            </Link>}
           </div>
         </div>
       </div>

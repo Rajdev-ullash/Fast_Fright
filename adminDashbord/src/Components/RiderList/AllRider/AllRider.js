@@ -6,6 +6,7 @@ import Shared from '../../Shared/Shared';
 const AllRider = () => {
     const history = useHistory()
     const [verifiedRiders,setVerifiedRiders] = useState([])
+    
     useEffect(()=>{
         fetch('http://localhost:5000/api/getVerifiedRider')
         .then(res=>res.json())
@@ -14,6 +15,7 @@ const AllRider = () => {
     const handleClick = (id) =>{
         history.push(`/VerifiedRider/${id}`)
     }
+    console.log(verifiedRiders)
     return (
         <div>
             <div>
@@ -32,6 +34,7 @@ const AllRider = () => {
                                 <div className='d-flex justify-content-between my-2 py-3 px-2 rounded bg-white shadow-sm'>
                                     <h6>{newRider.name}</h6>
                                     <h6>{newRider.email}</h6>
+                                    <h6>{newRider._id}</h6>
                                     <h6>{newRider.deliveryArea}</h6>
                                     <h6>{newRider.phone}</h6>
                                     <button className="btn btn-primary" onClick={()=>handleClick(newRider._id)} >Details</button>

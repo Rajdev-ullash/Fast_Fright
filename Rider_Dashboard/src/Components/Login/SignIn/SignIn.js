@@ -5,12 +5,14 @@ import { UserContext } from "../../../App";
 import signin from "../../../images/signin.png";
 const SignIn = () => {
   const [loggedInRider, setLoggedInRider] = useContext(UserContext);
+  
   const history = useHistory();
-  const [signInfo, setSignInfo] = useState({});
+  const [loginInfo, setLoginInfo] = useState({});
     const handleChange = (e) =>{
-      const signInInfo = {... loggedInRider}
+      const signInInfo = {... loginInfo}
       signInInfo[e.target.name] = e.target.value;
-      setLoggedInRider(signInInfo);
+      // setLoggedInRider(signInInfo);
+      setLoginInfo(signInInfo)
       console.log(signInInfo);
     }
     const handleSubmit = (e) => {
@@ -20,12 +22,23 @@ const SignIn = () => {
           headers:{
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(loggedInRider)
+          body: JSON.stringify(loginInfo)
         })
         .then(res => res.json())
         .then(data => {
+          console.log(data)
           if(data){
-            history.push('/rider')
+            const riderInfo = {... loggedInRider}
+            riderInfo.id = data.data._id;
+            riderInfo.email = data.data.email;
+            riderInfo.name = data.data.name;
+            setLoggedInRider(riderInfo);
+            console.log(riderInfo)
+            const email = data.data.email;
+
+            const jsonEmail = JSON.stringify(email);
+            localStorage.setItem('email',jsonEmail);
+            history.push('/singleRiderData')
             alert('SignIn SuccessFull')
           }
         })
