@@ -20,7 +20,10 @@ const riderParcelSchema = new mongoose.Schema({
     riderInfo:[{}],
     status:{
         
-    }
+    },
+    trackingId:{
+
+    },
 },{timestamps:true})
 
 module.exports = mongoose.model('riderParcel', riderParcelSchema);
