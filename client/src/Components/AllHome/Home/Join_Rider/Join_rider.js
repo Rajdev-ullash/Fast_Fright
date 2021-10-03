@@ -13,7 +13,7 @@ const Join_rider = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/api/ridingRequest`;
+    const url = `https://immense-headland-98077.herokuapp.com/api/ridingRequest`;
 
     fetch(url, {
       method: "POST",
@@ -61,12 +61,10 @@ const Join_rider = () => {
                 {...register("address", { required: true })}
               />
             </div>
-            <div className="form-group p-1">
-              
-            </div>
+            <div className="form-group p-1"></div>
             <div className="form-group p-1">
               <label for="cars">Choose a Delivery Area: </label>
-              
+
               <select
                 placeholder="select your address"
                 className="from-control"
@@ -84,7 +82,9 @@ const Join_rider = () => {
             <div className="form-group p-1">
               <label for="cars">Choose a Vehicle: </label>
               <select
-                placeholder="select your vehicle"{...register("vehicle")}>
+                placeholder="select your vehicle"
+                {...register("vehicle")}
+              >
                 <option value="Cycle">Cycle</option>
                 <option value="Motor Bike">Motor Bike</option>
               </select>

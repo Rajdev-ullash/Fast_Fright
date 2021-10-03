@@ -5,7 +5,7 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 import { UserContext } from "../../App";
 const SignIn = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -17,7 +17,7 @@ const SignIn = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/signin", {
+    fetch("https://immense-headland-98077.herokuapp.com/api/signin", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -26,7 +26,7 @@ const SignIn = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('data', data)
+        console.log("data", data);
         if (data.error) {
           Toastify({
             text: data.error,
@@ -37,19 +37,19 @@ const SignIn = () => {
           const access_token = data.access_token;
           const jsonAccessToken = JSON.stringify(access_token);
           localStorage.setItem("token", jsonAccessToken);
-          localStorage.setItem("user",JSON.stringify(data.data))
-          const user = {... loggedInUser}
+          localStorage.setItem("user", JSON.stringify(data.data));
+          const user = { ...loggedInUser };
           user.firstName = data.data.firstName;
           user.lastName = data.data.lastName;
           user.email = data.data.email;
           setLoggedInUser(user);
-          console.log('user',user);
+          console.log("user", user);
           Toastify({
             text: data.message,
             duration: 2000,
           }).showToast();
           history.replace(from);
-        } 
+        }
       })
       .catch((err) => console.log(err));
   };

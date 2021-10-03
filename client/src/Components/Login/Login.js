@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 import "./Login.css";
 const Login = () => {
-
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const [error, setError] = useState(false);
@@ -12,7 +11,7 @@ const Login = () => {
   const handleChange = (e) => {
     const newUserInfo = { ...loggedInUser };
     newUserInfo[e.target.name] = e.target.value;
-    console.log('new user',newUserInfo);
+    console.log("new user", newUserInfo);
     setLoggedInUser(newUserInfo);
   };
   const handleSubmit = (e) => {
@@ -20,7 +19,7 @@ const Login = () => {
     if (loggedInUser.password === loggedInUser.confirmPassword) {
       console.log(loggedInUser);
 
-      fetch("http://localhost:5000/api/signup", {
+      fetch("https://immense-headland-98077.herokuapp.com/api/signup", {
         method: "POST",
         headers: {
           "content-type": "application/json",
